@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Itim&family=Unbounded:wght@300;400;500;600;700;900&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Unbounded", cursive;
+}
+
+div.game-container {
+  background-color: #f05;
+  text-align: center;
+  width: 800px;
+  margin: 0 auto;
+}
+
+div.result {
+  font-size: 30px;
+  color: white;
+}
+
+div.result span {
+  color: rgb(255, 255, 0);
+}
+
+@media (max-width: 800px) {
+  div.game-container {
+    width: 100%;
+  }
+}
+
+div.app {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
+  gap: 10px;
+}
+
+div.app div {
+  background-color: #f05;
+  color: white;
+  width: 80px;
+  height: 80px;
+  flex-basis: 30%;
+  margin-top: 10px;
+  margin-left: 15px;
+  line-height: 80px;
+  font-size: 40px;
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+
+div.app div:hover {
+  background-color: black;
+}
+
+.disable {
+  pointer-events: none;
+}
