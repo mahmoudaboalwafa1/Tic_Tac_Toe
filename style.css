@@ -9,10 +9,14 @@
 body {
   overflow-x: hidden;
   background-color: springgreen;
-  height: 100vh;
   border: 15px solid transparent;
   -o-border-image: url("./images/border-leaf.png") 10;
      border-image: url("./images/border-leaf.png") 10;
+}
+@media (min-width: 801px) {
+  body {
+    height: 100vh;
+  }
 }
 
 ul {
@@ -79,11 +83,24 @@ div.app div:hover {
   }
 }
 .start-game button {
-  margin-top: 20px;
-  background-color: rgb(255, 255, 0);
+  margin-bottom: 20px;
+  background-image: url("./images/bg-btn-start.jpg");
   border: 1px solid #f05;
-  width: 200px;
+  width: 148px;
   padding: 20px 0;
+  background-size: 106%;
+  font-size: 30px;
+  font-weight: bold;
+  background-position-x: 59%;
+  background-position-y: 76%;
+  background-repeat: no-repeat;
+}
+@media (max-width: 800px) {
+  .start-game button {
+    width: 100px;
+    padding: 0;
+    font-size: 16px;
+  }
 }
 
 .start-game input {
@@ -145,6 +162,8 @@ div.app div.theme-4 {
 
 .themes-area {
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
   padding: 30px 0;
 }
@@ -157,8 +176,20 @@ div.app div.theme-4 {
   width: 300px;
   padding: 10px;
 }
-.themes-area img {
+.themes-area img,
+.themes-area .active {
   width: 100%;
+  border: 10px solid transparent;
+}
+.themes-area img:hover,
+.themes-area .active:hover {
+  -o-border-image: url("./images/border-leaf.png") 10;
+     border-image: url("./images/border-leaf.png") 10;
+}
+.themes-area img.active,
+.themes-area .active.active {
+  -o-border-image: url("./images/border-leaf.png") 10;
+     border-image: url("./images/border-leaf.png") 10;
 }
 
 .result,

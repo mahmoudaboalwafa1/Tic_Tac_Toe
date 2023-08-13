@@ -9,11 +9,13 @@ const x = document.getElementById("x");
 const o = document.getElementById("o");
 const btnStart = document.querySelector(".start-game button");
 const themes = document.querySelectorAll(".themes-area img");
+const erorrElement = document.getElementById("error");
 
-let play = "x";
+let play = "";
 let themeNowX = "";
 let themeNowO = "";
 let themeSelected = "";
+let alertMessage = "";
 
 btnStart.addEventListener("click", () => HandleBTNStart());
 
@@ -114,8 +116,18 @@ const startGame = () => {
 };
 
 const HandleBTNStart = () => {
-  name?.value?.length > 0 && HideGame("block");
-  startGameArea.style.display = "none";
+  if (name.value === "") {
+    alertMessage = "You Must Fill Your Name";
+  } else if (themeSelected === "") {
+    alertMessage = "You Must Select Your Theme";
+  } else if (play === "") {
+    alertMessage = "You Must Select X or O";
+  } else {
+    startGameArea.style.display = "none";
+    HideGame("block");
+    alertMessage = "";
+  }
+  HandleError();
 };
 
 // Choose X or O
@@ -163,7 +175,7 @@ const ApplyTheme = () => {
 
 // Set Theme
 const SetTheme = () => {
-  themes.forEach((theme) => {
+  themes.forEach((theme, index) => {
     theme.onclick = () => {
       themeSelected = theme.dataset.theme;
       game_container.className = theme.dataset.theme;
@@ -172,11 +184,27 @@ const SetTheme = () => {
       boxes.forEach((box) => box.classList.add(theme.dataset.theme));
 
       ApplyTheme();
+
+      theme.classList.add("active");
+
+      themes.forEach((oldTheme, id) => {
+        if (oldTheme.classList.contains("active") && id !== index) {
+          oldTheme.classList.remove("active");
+        }
+      });
     };
   });
 };
 
-SetTheme();
+// HandleError
 
+const HandleError = () => {
+  if (alertMessage) {
+    erorrElement.innerHTML = alertMessage;
+    console.log(alertMessage);
+  }
+};
+
+SetTheme();
 startGame();
 static();

@@ -30,9 +30,12 @@ $yellow_color: rgb(255, 255, 0);
 body {
   overflow-x: hidden;
   background-color: springgreen;
-  height: 100vh;
   border: 15px solid transparent;
   border-image: url("./images/border-leaf.png") 10;
+
+  @media (min-width: 801px) {
+    height: 100vh;
+  }
 }
 
 ul {
@@ -97,11 +100,23 @@ div.app div:hover {
   }
 
   button {
-    margin-top: 20px;
-    background-color: $yellow_color;
-    border: 1px solid $theme-1;
-    width: 200px;
+    margin-bottom: 20px;
+    background-image: url("./images/bg-btn-start.jpg");
+    border: 1px solid #f05;
+    width: 148px;
     padding: 20px 0;
+    background-size: 106%;
+    font-size: 30px;
+    font-weight: bold;
+    background-position-x: 59%;
+    background-position-y: 76%;
+    background-repeat: no-repeat;
+
+    @media (max-width: 800px) {
+      width: 100px;
+      padding: 0;
+      font-size: 16px;
+    }
   }
 }
 
@@ -155,6 +170,8 @@ div.app div.theme-4 {
 
 .themes-area {
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
   padding: 30px 0;
 
@@ -167,8 +184,17 @@ div.app div.theme-4 {
     padding: 10px;
   }
 
-  img {
+  img,
+  .active {
     width: 100%;
+    border: 10px solid transparent;
+    &:hover {
+      border-image: url("./images/border-leaf.png") 10;
+    }
+
+    &.active {
+      border-image: url("./images/border-leaf.png") 10;
+    }
   }
 }
 
