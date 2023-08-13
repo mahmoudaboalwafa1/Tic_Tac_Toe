@@ -7,6 +7,10 @@
   font-family: "Unbounded", cursive;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 div.game-container {
   background-color: #f05;
   text-align: center;
@@ -30,8 +34,8 @@ div.result span {
 }
 
 div.app {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: auto auto auto;
   background-color: white;
   gap: 10px;
 }
@@ -39,7 +43,7 @@ div.app {
 div.app div {
   background-color: #f05;
   color: white;
-  width: 80px;
+  width: 90%;
   height: 80px;
   flex-basis: 30%;
   margin-top: 10px;
