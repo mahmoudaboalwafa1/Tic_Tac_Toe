@@ -12,11 +12,7 @@ body {
   border: 15px solid transparent;
   -o-border-image: url("./images/border-leaf.png") 10;
      border-image: url("./images/border-leaf.png") 10;
-}
-@media (min-width: 801px) {
-  body {
-    height: 100vh;
-  }
+  padding-bottom: 20px;
 }
 
 ul {
@@ -34,14 +30,22 @@ div.game-container {
   }
 }
 
-div.result {
+ul.result {
   font-size: 30px;
   color: white;
   padding-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
-
-div.result span {
-  color: rgb(255, 255, 0);
+ul.result li:first-of-type {
+  position: absolute;
+  left: 22px;
+  font-size: 18px;
+}
+ul.result li:last-of-type {
+  padding-top: 10px;
 }
 
 div.app {
@@ -83,7 +87,6 @@ div.app div:hover {
   }
 }
 .start-game button {
-  margin-bottom: 20px;
   background-image: url("./images/bg-btn-start.jpg");
   border: 1px solid #f05;
   width: 148px;
@@ -104,6 +107,7 @@ div.app div:hover {
 }
 
 .start-game input {
+  margin-top: 20px;
   background-color: transparent;
   color: #f05;
   border: 11px solid #f05;
@@ -173,8 +177,13 @@ div.app div.theme-4 {
   }
 }
 .themes-area li {
-  width: 300px;
+  width: 400px;
   padding: 10px;
+}
+@media (max-width: 800px) {
+  .themes-area li {
+    width: 100%;
+  }
 }
 .themes-area img,
 .themes-area .active {

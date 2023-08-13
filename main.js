@@ -1,7 +1,8 @@
 // Global Variables
 const game_container = document.querySelector(".game-container");
 const startGameArea = document.querySelector(".start-game");
-const result = document.querySelector(".result");
+const nameArea = document.querySelector(".result li:first-of-type");
+const result = document.querySelector(".result li:last-of-type");
 const boxes = document.querySelectorAll(".box");
 const app = document.querySelector(".app");
 const name = document.getElementById("name");
@@ -124,6 +125,7 @@ const HandleBTNStart = () => {
     alertMessage = "You Must Select X or O";
   } else {
     startGameArea.style.display = "none";
+    nameArea.textContent = name.value;
     HideGame("block");
     alertMessage = "";
   }
@@ -201,7 +203,6 @@ const SetTheme = () => {
 const HandleError = () => {
   if (alertMessage) {
     erorrElement.innerHTML = alertMessage;
-    console.log(alertMessage);
   }
 };
 

@@ -32,10 +32,7 @@ body {
   background-color: springgreen;
   border: 15px solid transparent;
   border-image: url("./images/border-leaf.png") 10;
-
-  @media (min-width: 801px) {
-    height: 100vh;
-  }
+  padding-bottom: 20px;
 }
 
 ul {
@@ -52,14 +49,24 @@ div.game-container {
   }
 }
 
-div.result {
+ul.result {
   font-size: 30px;
   color: white;
   padding-bottom: 20px;
-}
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 
-div.result span {
-  color: $yellow_color;
+  li:first-of-type {
+    position: absolute;
+    left: 22px;
+    font-size: 18px;
+  }
+
+  li:last-of-type {
+    padding-top: 10px;
+  }
 }
 
 div.app {
@@ -100,7 +107,6 @@ div.app div:hover {
   }
 
   button {
-    margin-bottom: 20px;
     background-image: url("./images/bg-btn-start.jpg");
     border: 1px solid #f05;
     width: 148px;
@@ -121,6 +127,7 @@ div.app div:hover {
 }
 
 .start-game input {
+  margin-top: 20px;
   background-color: transparent;
   color: $theme-1;
   border: 11px solid $theme-1;
@@ -180,8 +187,11 @@ div.app div.theme-4 {
   }
 
   li {
-    width: 300px;
+    width: 400px;
     padding: 10px;
+    @media (max-width: 800px) {
+      width: 100%;
+    }
   }
 
   img,
