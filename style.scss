@@ -1,4 +1,7 @@
-$main_color: #f05;
+$theme-1: #f05;
+$theme-2: black;
+$theme-3: lightseagreen;
+$theme-4: rebeccapurple;
 $yellow_color: rgb(255, 255, 0);
 
 @import url("https://fonts.googleapis.com/css2?family=Itim&family=Unbounded:wght@300;400;500;600;700;900&display=swap");
@@ -26,10 +29,17 @@ $yellow_color: rgb(255, 255, 0);
 
 body {
   overflow-x: hidden;
+  background-color: springgreen;
+  height: 100vh;
+  border: 15px solid transparent;
+  border-image: url("./images/border-leaf.png") 10;
+}
+
+ul {
+  list-style-type: none;
 }
 
 div.game-container {
-  background-color: $main_color;
   text-align: center;
   width: 800px;
   margin: 0 auto;
@@ -52,12 +62,11 @@ div.result span {
 div.app {
   display: grid;
   grid-template-columns: auto auto auto;
-  background-color: white;
+  background-color: springgreen;
   gap: 10px;
 }
 
 div.app div {
-  background-color: $main_color;
   color: white;
   width: 90%;
   height: 80px;
@@ -86,12 +95,20 @@ div.app div:hover {
   @media (max-width: 800px) {
     width: 100%;
   }
+
+  button {
+    margin-top: 20px;
+    background-color: $yellow_color;
+    border: 1px solid $theme-1;
+    width: 200px;
+    padding: 20px 0;
+  }
 }
 
 .start-game input {
   background-color: transparent;
-  color: $main_color;
-  border: 11px solid $main_color;
+  color: $theme-1;
+  border: 11px solid $theme-1;
   text-align: center;
   padding: 9px;
   border-radius: 6px;
@@ -108,18 +125,59 @@ div.app div:hover {
 .start-game p {
   margin-top: 20px;
   letter-spacing: 10px;
-}
-
-.start-game p span:hover {
-  color: $main_color;
-}
-
-.start-game button {
-  margin-top: 20px;
-  background-color: $yellow_color;
-  border: 1px solid $main_color;
-  width: 200px;
-  padding: 20px 0;
+  span:hover {
+    color: $theme-1;
+  }
 }
 
 @include ShowGameAnimation(0);
+
+// Color Themes
+.theme-1,
+div.app div.theme-1 {
+  background-color: $theme-1;
+}
+
+.theme-2,
+div.app div.theme-2 {
+  background-color: $theme-2;
+}
+
+.theme-3,
+div.app div.theme-3 {
+  background-color: $theme-3;
+}
+
+.theme-4,
+div.app div.theme-4 {
+  background-color: $theme-4;
+}
+
+.themes-area {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 30px 0;
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
+
+  li {
+    width: 300px;
+    padding: 10px;
+  }
+
+  img {
+    width: 100%;
+  }
+}
+
+.result,
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img {
+    width: 50px;
+  }
+}

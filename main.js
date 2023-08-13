@@ -8,8 +8,12 @@ const name = document.getElementById("name");
 const x = document.getElementById("x");
 const o = document.getElementById("o");
 const btnStart = document.querySelector(".start-game button");
+const themes = document.querySelectorAll(".themes-area img");
 
 let play = "x";
+let themeNowX = "";
+let themeNowO = "";
+let themeSelected = "";
 
 btnStart.addEventListener("click", () => HandleBTNStart());
 
@@ -27,12 +31,12 @@ const static = () => {
   boxes.forEach((box, index) => {
     box.onclick = () => {
       if (box.innerHTML == "" && play == "x") {
-        box.innerHTML = "x";
-        result.innerHTML = "o";
+        box.innerHTML = themeNowX;
+        result.innerHTML = themeNowO;
         play = "o";
       } else if (box.innerHTML == "" && play == "o") {
-        box.innerHTML = "o";
-        result.innerHTML = "x";
+        box.innerHTML = themeNowO;
+        result.innerHTML = themeNowX;
         play = "x";
       }
       // Rows
@@ -113,6 +117,66 @@ const HandleBTNStart = () => {
   name?.value?.length > 0 && HideGame("block");
   startGameArea.style.display = "none";
 };
+
+// Choose X or O
+const ChooseTicOrToc = (player) => {
+  switch (player) {
+    case x:
+      o.style.color = "black";
+      x.style.color = "#f05";
+      play = "x";
+      break;
+    case o:
+      x.style.color = "black";
+      o.style.color = "#f05";
+      play = "o";
+      break;
+  }
+  EnterToGame();
+};
+
+x.onclick = () => ChooseTicOrToc(x);
+o.onclick = () => ChooseTicOrToc(o);
+
+// Enter To Game Functionality
+const EnterToGame = () => {
+  play && name.value.length > 0 ? startGame("none") : "";
+};
+
+// ApplyTheme Functionality
+const ApplyTheme = () => {
+  if (themeNowX === "theme-1") {
+    themeNowX = `<img src="./images/player_x/close.png"/>`;
+    themeNowO = `<img src="./images/player_o/o (1).png"/>`;
+  } else if (themeNowX === "theme-2") {
+    themeNowX = `<img src="./images/player_x/x.png" />`;
+    themeNowO = `<img src="./images/player_o/letter-o.png"/>`;
+  } else if (themeNowX === "theme-3") {
+    themeNowX = `<img src="./images/player_x/pharmacy.png" />`;
+    themeNowO = `<img src="./images/player_o/o (2).png"/>`;
+  } else if (themeNowX === "theme-4") {
+    themeNowX = `<img src="./images/player_x/no.png" />`;
+    themeNowO = `<img src="./images/player_o/o (3).png"/>`;
+  }
+  result.innerHTML = `${themeNowX} ${themeNowO} Game`;
+};
+
+// Set Theme
+const SetTheme = () => {
+  themes.forEach((theme) => {
+    theme.onclick = () => {
+      themeSelected = theme.dataset.theme;
+      game_container.className = theme.dataset.theme;
+      themeNowX = theme.dataset.theme;
+      themeNowO = theme.dataset.theme;
+      boxes.forEach((box) => box.classList.add(theme.dataset.theme));
+
+      ApplyTheme();
+    };
+  });
+};
+
+SetTheme();
 
 startGame();
 static();
