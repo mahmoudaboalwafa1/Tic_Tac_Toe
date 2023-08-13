@@ -1,4 +1,22 @@
+$main_color: #f05;
+$yellow_color: rgb(255, 255, 0);
+
 @import url("https://fonts.googleapis.com/css2?family=Itim&family=Unbounded:wght@300;400;500;600;700;900&display=swap");
+
+@mixin ShowGameAnimation($lastLeft) {
+  @keyframes showGame {
+    0% {
+      left: -1000px;
+    }
+    50% {
+      left: -500px;
+    }
+    100% {
+      left: $lastLeft;
+    }
+  }
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -11,13 +29,12 @@ body {
 }
 
 div.game-container {
-  background-color: #f05;
+  background-color: $main_color;
   text-align: center;
   width: 800px;
   margin: 0 auto;
-}
-@media (max-width: 800px) {
-  div.game-container {
+
+  @media (max-width: 800px) {
     width: 100%;
   }
 }
@@ -29,7 +46,7 @@ div.result {
 }
 
 div.result span {
-  color: rgb(255, 255, 0);
+  color: $yellow_color;
 }
 
 div.app {
@@ -40,7 +57,7 @@ div.app {
 }
 
 div.app div {
-  background-color: #f05;
+  background-color: $main_color;
   color: white;
   width: 90%;
   height: 80px;
@@ -65,17 +82,16 @@ div.app div:hover {
   width: 800px;
   margin: 0 auto;
   text-align: center;
-}
-@media (max-width: 800px) {
-  .start-game {
+
+  @media (max-width: 800px) {
     width: 100%;
   }
 }
 
 .start-game input {
   background-color: transparent;
-  color: #f05;
-  border: 11px solid #f05;
+  color: $main_color;
+  border: 11px solid $main_color;
   text-align: center;
   padding: 9px;
   border-radius: 6px;
@@ -83,9 +99,8 @@ div.app div:hover {
   position: relative;
   left: 0;
   animation: showGame 1s;
-}
-@media (min-width: 801px) {
-  .start-game input {
+
+  @media (min-width: 801px) {
     left: 0;
   }
 }
@@ -96,25 +111,15 @@ div.app div:hover {
 }
 
 .start-game p span:hover {
-  color: #f05;
+  color: $main_color;
 }
 
 .start-game button {
   margin-top: 20px;
-  background-color: rgb(255, 255, 0);
-  border: 1px solid #f05;
+  background-color: $yellow_color;
+  border: 1px solid $main_color;
   width: 200px;
   padding: 20px 0;
 }
 
-@keyframes showGame {
-  0% {
-    left: -1000px;
-  }
-  50% {
-    left: -500px;
-  }
-  100% {
-    left: 0;
-  }
-}/*# sourceMappingURL=style.css.map */
+@include ShowGameAnimation(0);
