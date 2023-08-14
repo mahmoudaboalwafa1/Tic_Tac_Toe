@@ -11,6 +11,9 @@ const o = document.getElementById("o");
 const btnStart = document.querySelector(".start-game button");
 const themes = document.querySelectorAll(".themes-area img");
 const erorrElement = document.getElementById("error");
+const soundStartGame = new Audio("./sounds/game-start-6104.mp3");
+const soundPlayerX = new Audio("./sounds/x.wav");
+const soundPlayerO = new Audio("./sounds/o.wav");
 
 let play = "";
 let themeNowX = "";
@@ -30,17 +33,19 @@ const endGame = (num1, num2, num3) => {
   setTimeout(() => window.location.reload(), 4000);
 };
 
-const static = () => {
+const Logic = () => {
   boxes.forEach((box, index) => {
     box.onclick = () => {
       if (box.innerHTML == "" && play == "x") {
         box.innerHTML = themeNowX;
         result.innerHTML = themeNowO;
         play = "o";
+        soundPlayerO.play();
       } else if (box.innerHTML == "" && play == "o") {
         box.innerHTML = themeNowO;
         result.innerHTML = themeNowX;
         play = "x";
+        soundPlayerX.play();
       }
       // Rows
       if (
@@ -128,6 +133,7 @@ const HandleBTNStart = () => {
     nameArea.textContent = name.value;
     HideGame("block");
     alertMessage = "";
+    soundStartGame.play();
   }
   HandleError();
 };
@@ -208,4 +214,4 @@ const HandleError = () => {
 
 SetTheme();
 startGame();
-static();
+Logic();

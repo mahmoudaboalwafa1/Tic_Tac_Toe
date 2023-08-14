@@ -124,6 +124,13 @@ div.app div:hover {
       font-size: 16px;
     }
   }
+
+  img.tree {
+    position: fixed;
+    top: 523px;
+    left: -105px;
+    animation: showTree 1s ease;
+  }
 }
 
 .start-game input {
@@ -151,8 +158,6 @@ div.app div:hover {
     color: $theme-1;
   }
 }
-
-@include ShowGameAnimation(0);
 
 // Color Themes
 .theme-1,
@@ -215,5 +220,25 @@ div.app div.theme-4 {
   justify-content: center;
   img {
     width: 50px;
+  }
+}
+
+@include ShowGameAnimation(0);
+
+@keyframes ShowTree {
+  0% {
+    top: 523px;
+    left: -105px;
+    width: 100%;
+  }
+  50% {
+    top: -37px;
+    width: 100%;
+    left: 0;
+  }
+  100% {
+    top: 523px;
+    left: -105px;
+    width: 100%;
   }
 }

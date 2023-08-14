@@ -105,6 +105,12 @@ div.app div:hover {
     font-size: 16px;
   }
 }
+.start-game img.tree {
+  position: fixed;
+  top: 523px;
+  left: -105px;
+  animation: showTree 1s ease;
+}
 
 .start-game input {
   margin-top: 20px;
@@ -133,17 +139,6 @@ div.app div:hover {
   color: #f05;
 }
 
-@keyframes showGame {
-  0% {
-    left: -1000px;
-  }
-  50% {
-    left: -500px;
-  }
-  100% {
-    left: 0;
-  }
-}
 .theme-1,
 div.app div.theme-1 {
   background-color: #f05;
@@ -210,4 +205,33 @@ div.app div.theme-4 {
 .result img,
 .box img {
   width: 50px;
+}
+
+@keyframes showGame {
+  0% {
+    left: -1000px;
+  }
+  50% {
+    left: -500px;
+  }
+  100% {
+    left: 0;
+  }
+}
+@keyframes ShowTree {
+  0% {
+    top: 523px;
+    left: -105px;
+    width: 100%;
+  }
+  50% {
+    top: -37px;
+    width: 100%;
+    left: 0;
+  }
+  100% {
+    top: 523px;
+    left: -105px;
+    width: 100%;
+  }
 }/*# sourceMappingURL=style.css.map */
