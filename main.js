@@ -1,4 +1,5 @@
 // Global Variables
+
 const game_container = document.querySelector(".game-container");
 const startGameArea = document.querySelector(".start-game");
 const nameArea = document.querySelector(".result li:first-of-type");
