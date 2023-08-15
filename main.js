@@ -2,16 +2,11 @@
 import {
   game_container,
   startGameArea,
-  boxes,
   nameArea,
-  result,
-  app,
   btnStart,
   erorrElement,
   name,
   o,
-  soundPlayerO,
-  soundPlayerX,
   soundStartGame,
   x,
 } from "./module/variables.js";
@@ -22,22 +17,13 @@ import {
   themeNowO,
 } from "./module/themes.js";
 import { getPlay, setPlay } from "./module/state.js";
+import { Logic } from "./module/Logic.js";
 
 let alertMessage = "";
 
 SetTheme(themeNowX, themeNowO);
 
 btnStart.addEventListener("click", () => HandleBTNStart());
-
-const endGame = (num1, num2, num3) => {
-  num1.style.backgroundColor = "black";
-  num2.style.backgroundColor = "black";
-  num3.style.backgroundColor = "black";
-  app.classList.add("disable");
-  result.innerHTML = `${num1.innerHTML.toUpperCase()} Is Winner`;
-  setInterval(() => (result.innerHTML += "."), 1000);
-  setTimeout(() => window.location.reload(), 4000);
-};
 
 const HideGame = (status) => {
   game_container.style.display = status;

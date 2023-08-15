@@ -1,3 +1,17 @@
+import { getPlay, setPlay } from "./state.js";
+import { themeNowO, themeNowX } from "./themes.js";
+import { app, boxes, result, soundPlayerO, soundPlayerX } from "./variables.js";
+
+const endGame = (num1, num2, num3) => {
+  num1.style.backgroundColor = "black";
+  num2.style.backgroundColor = "black";
+  num3.style.backgroundColor = "black";
+  app.classList.add("disable");
+  result.innerHTML = `${num1.innerHTML.toUpperCase()} Is Winner`;
+  setInterval(() => (result.innerHTML += "."), 1000);
+  setTimeout(() => window.location.reload(), 4000);
+};
+
 export const Logic = () => {
   boxes.forEach((box, index) => {
     box.onclick = () => {
