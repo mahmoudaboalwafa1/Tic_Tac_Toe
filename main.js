@@ -1,26 +1,32 @@
 // Global Variables
-
-const game_container = document.querySelector(".game-container");
-const startGameArea = document.querySelector(".start-game");
-const nameArea = document.querySelector(".result li:first-of-type");
-const result = document.querySelector(".result li:last-of-type");
-const boxes = document.querySelectorAll(".box");
-const app = document.querySelector(".app");
-const name = document.getElementById("name");
-const x = document.getElementById("x");
-const o = document.getElementById("o");
-const btnStart = document.querySelector(".start-game button");
-const themes = document.querySelectorAll(".themes-area img");
-const erorrElement = document.getElementById("error");
-const soundStartGame = new Audio("./sounds/game-start-6104.mp3");
-const soundPlayerX = new Audio("./sounds/x.wav");
-const soundPlayerO = new Audio("./sounds/o.wav");
+import {
+  game_container,
+  startGameArea,
+  boxes,
+  nameArea,
+  result,
+  app,
+  btnStart,
+  erorrElement,
+  name,
+  o,
+  soundPlayerO,
+  soundPlayerX,
+  soundStartGame,
+  x,
+} from "./module/variables.js";
+import {
+  SetTheme,
+  themeSelected,
+  themeNowX,
+  themeNowO,
+} from "./module/themes.js";
 
 let play = "";
-let themeNowX = "";
-let themeNowO = "";
-let themeSelected = "";
+
 let alertMessage = "";
+
+SetTheme(themeNowX, themeNowO);
 
 btnStart.addEventListener("click", () => HandleBTNStart());
 
@@ -164,47 +170,6 @@ const EnterToGame = () => {
   play && name.value.length > 0 ? startGame("none") : "";
 };
 
-// ApplyTheme Functionality
-const ApplyTheme = () => {
-  if (themeNowX === "theme-1") {
-    themeNowX = `<img src="./images/player_x/close.png"/>`;
-    themeNowO = `<img src="./images/player_o/o (1).png"/>`;
-  } else if (themeNowX === "theme-2") {
-    themeNowX = `<img src="./images/player_x/x.png" />`;
-    themeNowO = `<img src="./images/player_o/letter-o.png"/>`;
-  } else if (themeNowX === "theme-3") {
-    themeNowX = `<img src="./images/player_x/pharmacy.png" />`;
-    themeNowO = `<img src="./images/player_o/o (2).png"/>`;
-  } else if (themeNowX === "theme-4") {
-    themeNowX = `<img src="./images/player_x/no.png" />`;
-    themeNowO = `<img src="./images/player_o/o (3).png"/>`;
-  }
-  result.innerHTML = `${themeNowX} ${themeNowO} Game`;
-};
-
-// Set Theme
-const SetTheme = () => {
-  themes.forEach((theme, index) => {
-    theme.onclick = () => {
-      themeSelected = theme.dataset.theme;
-      game_container.className = theme.dataset.theme;
-      themeNowX = theme.dataset.theme;
-      themeNowO = theme.dataset.theme;
-      boxes.forEach((box) => box.classList.add(theme.dataset.theme));
-
-      ApplyTheme();
-
-      theme.classList.add("active");
-
-      themes.forEach((oldTheme, id) => {
-        if (oldTheme.classList.contains("active") && id !== index) {
-          oldTheme.classList.remove("active");
-        }
-      });
-    };
-  });
-};
-
 // HandleError
 
 const HandleError = () => {
@@ -213,6 +178,5 @@ const HandleError = () => {
   }
 };
 
-SetTheme();
 startGame();
 Logic();
