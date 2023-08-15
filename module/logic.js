@@ -1,3 +1,5 @@
+// Here Logic game put x or o in box and endGame
+
 import { getPlay, setPlay } from "./state.js";
 import { themeNowO, themeNowX } from "./themes.js";
 import { app, boxes, result, soundPlayerO, soundPlayerX } from "./variables.js";
