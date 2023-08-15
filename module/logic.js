@@ -1,18 +1,9 @@
 // Here Logic game put x or o in box and endGame
 
+import { endGame } from "./endGame.js";
 import { getPlay, setPlay } from "./state.js";
 import { themeNowO, themeNowX } from "./themes.js";
-import { app, boxes, result, soundPlayerO, soundPlayerX } from "./variables.js";
-
-const endGame = (num1, num2, num3) => {
-  num1.style.backgroundColor = "black";
-  num2.style.backgroundColor = "black";
-  num3.style.backgroundColor = "black";
-  app.classList.add("disable");
-  result.innerHTML = `${num1.innerHTML.toUpperCase()} Is Winner`;
-  setInterval(() => (result.innerHTML += "."), 1000);
-  setTimeout(() => window.location.reload(), 4000);
-};
+import { boxes, result, soundPlayerO, soundPlayerX } from "./variables.js";
 
 export const Logic = () => {
   boxes.forEach((box, index) => {
@@ -26,6 +17,7 @@ export const Logic = () => {
         box.innerHTML = themeNowO;
         result.innerHTML = themeNowX;
         setPlay("x");
+
         soundPlayerX.play();
       }
       // Rows
@@ -89,6 +81,18 @@ export const Logic = () => {
         boxes[4].innerHTML != ""
       ) {
         endGame(boxes[2], boxes[4], boxes[6]);
+      } else if (
+        boxes[0].innerHTML.length > 0 &&
+        boxes[1].innerHTML.length > 0 &&
+        boxes[2].innerHTML.length > 0 &&
+        boxes[3].innerHTML.length > 0 &&
+        boxes[4].innerHTML.length > 0 &&
+        boxes[5].innerHTML.length > 0 &&
+        boxes[6].innerHTML.length > 0 &&
+        boxes[7].innerHTML.length > 0 &&
+        boxes[8].innerHTML.length > 0
+      ) {
+        console.log("???");
       }
     };
   });
