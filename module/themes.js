@@ -1,6 +1,7 @@
 import { boxes, game_container, result, themes } from "variables.js";
+import { setThemeSelected, getThemeNext } from "state.js";
+import NextRound from "NextRound.js";
 
-export let themeSelected = "";
 export let themeNowX = "";
 export let themeNowO = "";
 
@@ -29,11 +30,14 @@ const ApplyTheme = () => {
 export const SetTheme = () => {
   themes.forEach((theme, index) => {
     theme.onclick = () => {
-      themeSelected = theme.dataset.theme;
-      game_container.className = theme.dataset.theme;
-      themeNowX = theme.dataset.theme;
-      themeNowO = theme.dataset.theme;
-      boxes.forEach((box) => box.classList.add(theme.dataset.theme));
+      setThemeSelected(theme.dataset.theme);
+
+      game_container.className = getThemeNext() ? "" : theme.dataset.theme;
+      themeNowX = getThemeNext() ? "" : theme.dataset.theme;
+      themeNowO = getThemeNext() ? "" : theme.dataset.theme;
+      boxes.forEach((box) =>
+        box.classList.add(getThemeNext() ? "" : theme.dataset.theme)
+      );
 
       theme.classList.add("active");
       ApplyTheme();
@@ -45,4 +49,5 @@ export const SetTheme = () => {
       });
     };
   });
+  NextRound();
 };

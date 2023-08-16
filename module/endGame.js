@@ -1,36 +1,44 @@
 // End Game Logic
 
-import { themeSelected } from "themes.js";
 import { result, app } from "variables.js";
+import { setWin } from "state.js";
+import { getThemeSelected } from "./state";
 
 export const endGame = (num1, num2, num3) => {
   num1.style.backgroundColor =
-    themeSelected === "theme-1"
+    getThemeSelected() === "theme-1"
       ? "lightseagreen"
-      : themeSelected === "theme-2"
+      : getThemeSelected() === "theme-2"
       ? "#f04"
-      : themeSelected === "theme-3"
+      : getThemeSelected() === "theme-3"
       ? "rebeccapurple"
       : "black";
   num2.style.backgroundColor =
-    themeSelected === "theme-1"
+    getThemeSelected() === "theme-1"
       ? "lightseagreen"
-      : themeSelected === "theme-2"
+      : getThemeSelected() === "theme-2"
       ? "#f04"
-      : themeSelected === "theme-3"
+      : getThemeSelected() === "theme-3"
       ? "rebeccapurple"
       : "black";
   num3.style.backgroundColor =
-    themeSelected === "theme-1"
+    getThemeSelected() === "theme-1"
       ? "lightseagreen"
-      : themeSelected === "theme-2"
+      : getThemeSelected() === "theme-2"
       ? "#f04"
-      : themeSelected === "theme-3"
+      : getThemeSelected() === "theme-3"
       ? "rebeccapurple"
       : "black";
   app.classList.add("disable");
   result.classList.add("winner");
-  result.innerHTML = `${num1.innerHTML.toUpperCase()} Is Winner`;
-  setInterval(() => (result.innerHTML += "."), 1000);
-  setTimeout(() => window.location.reload(), 4000);
+  result.innerHTML = `${num1.innerHTML} Is Winner`;
+  let close = 1;
+  setWin(true);
+  let interval = setInterval(() => {
+    result.innerHTML += ".";
+    if (close === 3) {
+      clearInterval(interval);
+    }
+    ++close;
+  }, 1000);
 };

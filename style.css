@@ -48,6 +48,7 @@ ul.result {
   }
 }
 ul.result li:first-of-type {
+  color: black;
   position: absolute !important;
   left: 22px !important;
   font-size: 18px !important;
@@ -56,6 +57,29 @@ ul.result li:first-of-type {
   ul.result li:first-of-type {
     position: unset !important;
   }
+}
+ul.result li:nth-child(2) {
+  border: 2px solid white;
+  width: 35px;
+  height: 35px;
+  contain: block-size;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+ul.result li:nth-child(2) p {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #0074ff;
+}
+ul.result li:nth-child(2) p.harryup {
+  background-color: red;
+}
+ul.result li:nth-child(2) p.speed {
+  background-color: yellow;
 }
 ul.result li:last-of-type {
   padding-top: 10px;
@@ -131,9 +155,38 @@ div.app div:hover {
 }
 .start-game img.tree {
   position: fixed;
-  top: 523px;
-  left: -105px;
-  animation: showTree 1s ease;
+  top: 500px;
+  left: -300px;
+}
+@media (width <= 670px) {
+  .start-game img.tree {
+    top: 199px;
+    left: -448px;
+  }
+}
+.start-game p.players {
+  position: fixed;
+  bottom: 17px;
+  font-weight: bold;
+  left: 0 !important;
+}
+@media (width <= 670px) {
+  .start-game p.players {
+    bottom: 183px;
+  }
+}
+.start-game img.show-players,
+.start-game p.show-players {
+  top: 0 !important;
+  height: 100vh;
+  left: 50% !important;
+  transform: translateX(-50%);
+}
+.start-game .show-players {
+  animation: showTree 2s ease-in !important;
+}
+.start-game p.show-players {
+  top: 50px !important;
 }
 
 .start-game input {
@@ -164,7 +217,9 @@ div.app div:hover {
 }
 
 div.app div {
-  height: calc(100vh - 397px);
+  height: calc(100vh - 480px);
+  width: 90%;
+  animation: animBox 0.8s linear;
 }
 
 .theme-1,
@@ -194,7 +249,7 @@ div.app div.theme-4 {
   flex-wrap: wrap;
   padding: 30px 0;
 }
-@media (max-width: 800px) {
+@media (max-width: 830px) {
   .themes-area {
     flex-direction: column;
   }
@@ -250,23 +305,6 @@ li:not(.winner) img {
     left: 0;
   }
 }
-@keyframes ShowTree {
-  0% {
-    top: 523px;
-    left: -105px;
-    width: 100%;
-  }
-  50% {
-    top: -37px;
-    width: 100%;
-    left: 0;
-  }
-  100% {
-    top: 523px;
-    left: -105px;
-    width: 100%;
-  }
-}
 @keyframes imgAnim {
   from {
     -o-object-position: -50px;
@@ -275,5 +313,13 @@ li:not(.winner) img {
   to {
     -o-object-position: 0;
        object-position: 0;
+  }
+}
+@keyframes animBox {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 90%;
   }
 }/*# sourceMappingURL=style.css.map */

@@ -1,6 +1,7 @@
-import * as theme from "themes.js";
 import { getPlay } from "state.js";
 import * as variables from "variables.js";
+import StartTimer from "StartTimer.js";
+import { getThemeSelected } from "state.js";
 
 let alertMessage = "";
 
@@ -25,7 +26,7 @@ const HandleError = () => {
 export const HandleBTNStart = () => {
   if (variables.name.value === "") {
     alertMessage = "You Must Fill Your Name";
-  } else if (theme.themeSelected === "") {
+  } else if (getThemeSelected() === "") {
     alertMessage = "You Must Select Your Theme";
   } else if (getPlay() === "") {
     alertMessage = "You Must Select X or O";
@@ -37,6 +38,7 @@ export const HandleBTNStart = () => {
     variables.soundStartGame.play();
   }
   HandleError();
+  StartTimer();
 };
 
 variables.btnStart.addEventListener("click", () => HandleBTNStart());

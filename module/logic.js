@@ -4,6 +4,9 @@ import { endGame } from "endGame.js";
 import { getPlay, setPlay } from "state.js";
 import { themeNowO, themeNowX } from "themes.js";
 import { boxes, result, soundPlayerO, soundPlayerX } from "variables.js";
+import { setWhoWin } from "state.js";
+import WhoWin from "WhoWin.js";
+import NextRound from "NextRound.js";
 
 export const Logic = () => {
   boxes.forEach((box, index) => {
@@ -92,7 +95,10 @@ export const Logic = () => {
         boxes[7].innerHTML.length > 0 &&
         boxes[8].innerHTML.length > 0
       ) {
-        console.log("???");
+        result.innerHTML = "???";
+        setWhoWin(true);
+        WhoWin();
+        NextRound();
       }
     };
   });
