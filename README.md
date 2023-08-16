@@ -1,6 +1,6 @@
 # XO_Game
 
-#### Live Preview: https://mahmoudaboalwafa1.github.io/XO_Game/
+#### Live Preview:  https://mahmoudaboalwafa1.github.io/Tic_Tac_Toe/
 
 Tools: `HTML` `CSS` `Javascript`
 ***
