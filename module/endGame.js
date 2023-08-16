@@ -29,6 +29,7 @@ export const endGame = (num1, num2, num3) => {
       ? "rebeccapurple"
       : "black";
   app.classList.add("disable");
+  result.classList.add("winner");
   result.innerHTML = `${num1.innerHTML.toUpperCase()} Is Winner`;
   setInterval(() => (result.innerHTML += "."), 1000);
   setTimeout(() => window.location.reload(), 4000);

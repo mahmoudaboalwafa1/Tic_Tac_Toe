@@ -139,6 +139,10 @@ div.app div:hover {
   color: #f05;
 }
 
+div.app div {
+  height: calc(100vh - 482px);
+}
+
 .theme-1,
 div.app div.theme-1 {
   background-color: #f05;
@@ -207,6 +211,10 @@ div.app div.theme-4 {
   width: 50px;
 }
 
+li:not(.winner) img {
+  animation: imgAnim 0.3s ease-in;
+}
+
 @keyframes showGame {
   0% {
     left: -1000px;
@@ -233,5 +241,15 @@ div.app div.theme-4 {
     top: 523px;
     left: -105px;
     width: 100%;
+  }
+}
+@keyframes imgAnim {
+  from {
+    -o-object-position: -50px;
+       object-position: -50px;
+  }
+  to {
+    -o-object-position: 0;
+       object-position: 0;
   }
 }/*# sourceMappingURL=style.css.map */

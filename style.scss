@@ -160,6 +160,10 @@ div.app div:hover {
 }
 
 // Color Themes
+div.app div {
+  height: calc(100vh - 482px);
+}
+
 .theme-1,
 div.app div.theme-1 {
   background-color: $theme-1;
@@ -223,6 +227,12 @@ div.app div.theme-4 {
   }
 }
 
+li:not(.winner) {
+  img {
+    animation: imgAnim 0.3s ease-in;
+  }
+}
+
 @include ShowGameAnimation(0);
 
 @keyframes ShowTree {
@@ -240,5 +250,14 @@ div.app div.theme-4 {
     top: 523px;
     left: -105px;
     width: 100%;
+  }
+}
+
+@keyframes imgAnim {
+  from {
+    object-position: -50px;
+  }
+  to {
+    object-position: 0;
   }
 }

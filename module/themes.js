@@ -7,7 +7,6 @@ export let themeNowO = "";
 // ApplyTheme Functionality
 const ApplyTheme = () => {
   if (themeNowX === "theme-1") {
-    console.log(themeNowO);
     themeNowX = `<img src="./images/player_x/close.png"/>`;
     themeNowO = `<img src="./images/player_o/o (1).png"/>`;
   }
