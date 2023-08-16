@@ -1,4 +1,4 @@
-import { boxes } from "./variables.js";
+import { boxes } from "variables.js";
 
 export const noWin = () =>
   boxes.forEach((box) => {

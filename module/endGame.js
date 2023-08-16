@@ -1,7 +1,7 @@
 // End Game Logic
 
-import { themeSelected } from "./themes.js";
-import { result, app } from "./variables.js";
+import { themeSelected } from "themes.js";
+import { result, app } from "variables.js";
 
 export const endGame = (num1, num2, num3) => {
   num1.style.backgroundColor =

@@ -1,6 +1,6 @@
-import * as variables from "./variables.js";
-import * as theme from "./themes.js";
-import { getPlay } from "./state.js";
+import * as theme from "themes.js";
+import { getPlay } from "state.js";
+import * as variables from "variables.js";
 
 let alertMessage = "";
 

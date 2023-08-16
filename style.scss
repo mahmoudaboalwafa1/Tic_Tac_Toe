@@ -50,6 +50,7 @@ div.game-container {
 }
 
 ul.result {
+  height: 75px;
   font-size: 30px;
   color: white;
   padding-bottom: 20px;
@@ -58,14 +59,33 @@ ul.result {
   justify-content: center;
   position: relative;
 
+  @media (width <= 600px) {
+    flex-direction: column !important;
+    height: auto !important;
+    position: unset !important;
+  }
+
   li:first-of-type {
-    position: absolute;
-    left: 22px;
-    font-size: 18px;
+    position: absolute !important;
+    left: 22px !important;
+    font-size: 18px !important;
+
+    @media (width <= 600px) {
+      position: unset !important;
+    }
   }
 
   li:last-of-type {
     padding-top: 10px;
+
+    @media (600px <= width <= 992px) {
+      position: absolute;
+      right: 22px;
+    }
+
+    @media (width <= 600px) {
+      position: unset;
+    }
   }
 }
 
@@ -161,7 +181,7 @@ div.app div:hover {
 
 // Color Themes
 div.app div {
-  height: calc(100vh - 482px);
+  height: calc(100vh - 397px);
 }
 
 .theme-1,

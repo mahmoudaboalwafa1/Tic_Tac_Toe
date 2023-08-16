@@ -1,4 +1,4 @@
-import { boxes, game_container, result, themes } from "./variables.js";
+import { boxes, game_container, result, themes } from "variables.js";
 
 export let themeSelected = "";
 export let themeNowX = "";

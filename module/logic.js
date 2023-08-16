@@ -1,9 +1,9 @@
 // Here Logic game put x or o in box and endGame
 
-import { endGame } from "./endGame.js";
-import { getPlay, setPlay } from "./state.js";
-import { themeNowO, themeNowX } from "./themes.js";
-import { boxes, result, soundPlayerO, soundPlayerX } from "./variables.js";
+import { endGame } from "endGame.js";
+import { getPlay, setPlay } from "state.js";
+import { themeNowO, themeNowX } from "themes.js";
+import { boxes, result, soundPlayerO, soundPlayerX } from "variables.js";
 
 export const Logic = () => {
   boxes.forEach((box, index) => {
