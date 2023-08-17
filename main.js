@@ -1,5 +1,10 @@
 // Global Variables
 
+// hot module webpack
+if (module.hot) {
+  module.hot.accept();
+}
+
 import * as theme from "themes.js";
 import { Logic } from "Logic.js";
 import { startGame } from "startGame.js";

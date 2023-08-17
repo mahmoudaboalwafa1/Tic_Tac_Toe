@@ -74,6 +74,10 @@ ul.result {
     @media (width <= 600px) {
       position: unset !important;
     }
+
+    &.theme-2 {
+      color: white;
+    }
   }
 
   li:nth-child(2) {
