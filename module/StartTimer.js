@@ -1,6 +1,6 @@
-import * as variables from "variables.js";
-import { boxes } from "./variables";
-import { getWin, getWhoWin } from "state.js";
+import * as variables from "./variables.js";
+import { boxes } from "./variables.js";
+import { getWin, getWhoWin } from "./state.js";
 let widthTimer = 100;
 const StartTimer = () => {
   let interval = setInterval(() => {

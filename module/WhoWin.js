@@ -1,5 +1,5 @@
-import { getWhoWin } from "state.js";
-import * as variables from "variables.js";
+import { getWhoWin } from "./state.js";
+import * as variables from "./variables.js";
 
 let wait = 1;
 

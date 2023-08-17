@@ -1,27 +1,30 @@
 // Here Logic game put x or o in box and endGame
 
-import { endGame } from "endGame.js";
-import { getPlay, setPlay } from "state.js";
-import { themeNowO, themeNowX } from "themes.js";
-import { boxes, result, soundPlayerO, soundPlayerX } from "variables.js";
-import { setWhoWin } from "state.js";
-import WhoWin from "WhoWin.js";
-import NextRound from "NextRound.js";
+import { endGame } from "./endGame.js";
+import { getPlay, setPlay } from "./state.js";
+import { themeNowO, themeNowX } from "./themes.js";
+import { boxes, result } from "./variables.js";
+import { setWhoWin } from "./state.js";
+import WhoWin from "./WhoWin.js";
+import NextRound from "./NextRound.js";
 
 export const Logic = () => {
   boxes.forEach((box, index) => {
     box.onclick = () => {
-      if (box.innerHTML == "" && getPlay() == "x") {
-        box.innerHTML = themeNowX;
-        result.innerHTML = themeNowO;
+      result.children[0].remove();
+      if (box.innerHTML.length === 0 && getPlay() == "x") {
+        box.innerHTML = `<img src="${themeNowX.src}"/>`;
+        result.appendChild(themeNowO);
         setPlay("o");
-        soundPlayerO.play();
-      } else if (box.innerHTML == "" && getPlay() == "o") {
-        box.innerHTML = themeNowO;
-        result.innerHTML = themeNowX;
+
+        console.log(box.innerHTML);
+        // soundPlayerO.play();
+      } else if (box.innerHTML.length === 0 && getPlay() == "o") {
+        box.innerHTML = `<img src="${themeNowO.src}"/>`;
+        result.appendChild(themeNowX);
         setPlay("x");
 
-        soundPlayerX.play();
+        // soundPlayerX.play();
       }
       // Rows
       if (
@@ -95,7 +98,6 @@ export const Logic = () => {
         boxes[7].innerHTML.length > 0 &&
         boxes[8].innerHTML.length > 0
       ) {
-        result.innerHTML = "???";
         setWhoWin(true);
         WhoWin();
         NextRound();

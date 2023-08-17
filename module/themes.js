@@ -1,29 +1,72 @@
-import { boxes, game_container, result, themes } from "variables.js";
-import { setThemeSelected, getThemeNext } from "state.js";
-import NextRound from "NextRound.js";
+import { boxes, game_container, result, themes } from "./variables.js";
+
+import ThemeXOne from "../images/player_x/close.png";
+import ThemeXTwo from "../images/player_x/x.png";
+import ThemeXThree from "../images/player_x/pharmacy.png";
+import ThemeXFour from "../images/player_x/no.png";
+import ThemeOOne from "../images/player_o/o (1).png";
+import ThemeOTwo from "../images/player_o/letter-o.png";
+import ThemeOThree from "../images/player_o/o (2).png";
+import ThemeOFour from "../images/player_o/o (3).png";
+import { setThemeSelected, getThemeNext } from "./state.js";
+import NextRound from "./NextRound.js";
 
 export let themeNowX = "";
 export let themeNowO = "";
 
 // ApplyTheme Functionality
 const ApplyTheme = () => {
-  if (themeNowX === "theme-1") {
-    themeNowX = `<img src="./images/player_x/close.png"/>`;
-    themeNowO = `<img src="./images/player_o/o (1).png"/>`;
-  }
-  if (themeNowX === "theme-2") {
-    themeNowX = `<img src="./images/player_x/x.png" />`;
-    themeNowO = `<img src="./images/player_o/letter-o.png"/>`;
-  }
-  if (themeNowX === "theme-3") {
-    themeNowX = `<img src="./images/player_x/pharmacy.png" />`;
-    themeNowO = `<img src="./images/player_o/o (2).png"/>`;
-  }
-  if (themeNowX === "theme-4") {
-    themeNowX = `<img src="./images/player_x/no.png" />`;
-    themeNowO = `<img src="./images/player_o/o (3).png"/>`;
-  }
-  result.innerHTML = `${themeNowX} ${themeNowO} Game`;
+  themes.forEach((themeArea) => {
+    if (themeNowX === "theme-1") {
+      let player_x_Img = document.createElement("img");
+      let player_o_Img = document.createElement("img");
+
+      player_x_Img.src = ThemeXOne;
+      player_o_Img.src = ThemeOOne;
+
+      themeNowX = player_x_Img;
+      themeNowO = player_o_Img;
+    }
+    if (themeNowX === "theme-2") {
+      let player_x_Img = document.createElement("img");
+      let player_o_Img = document.createElement("img");
+
+      player_x_Img.src = ThemeXTwo;
+      player_o_Img.src = ThemeOTwo;
+
+      themeNowX = player_x_Img;
+      themeNowO = player_o_Img;
+    }
+    if (themeNowX === "theme-3") {
+      let player_x_Img = document.createElement("img");
+      let player_o_Img = document.createElement("img");
+
+      player_x_Img.src = ThemeXThree;
+      player_o_Img.src = ThemeOThree;
+
+      themeNowX = player_x_Img;
+      themeNowO = player_o_Img;
+    }
+    if (themeNowX === "theme-4") {
+      let player_x_Img = document.createElement("img");
+      let player_o_Img = document.createElement("img");
+
+      player_x_Img.src = ThemeXFour;
+      player_o_Img.src = ThemeOFour;
+
+      themeNowX = player_x_Img;
+      themeNowO = player_o_Img;
+    }
+  });
+
+  const divCollectionXO = document.createElement("div");
+
+  const textGame = document.createTextNode("Game");
+  divCollectionXO.appendChild(themeNowX);
+  divCollectionXO.appendChild(themeNowO);
+  divCollectionXO.appendChild(textGame);
+
+  result.appendChild(divCollectionXO);
 };
 
 // Set Theme

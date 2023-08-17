@@ -1,5 +1,4 @@
-import { getWhoWin } from "state.js";
-import { getThemeSelected, setThemeNext } from "./state";
+import { getWhoWin, getThemeSelected, setThemeNext } from "./state.js";
 
 let Themes = ["theme-1", "theme-2", "theme-3", "theme-4"];
 let nextTheme = "";

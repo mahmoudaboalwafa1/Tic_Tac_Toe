@@ -1,7 +1,7 @@
-import { getPlay } from "state.js";
-import * as variables from "variables.js";
-import StartTimer from "StartTimer.js";
-import { getThemeSelected } from "state.js";
+import { getPlay } from "./state.js";
+import * as variables from "./variables.js";
+import StartTimer from "./StartTimer.js";
+import { getThemeSelected } from "./state.js";
 
 let alertMessage = "";
 
@@ -35,7 +35,7 @@ export const HandleBTNStart = () => {
     variables.nameArea.textContent = variables.name.value;
     HideGame("block");
     alertMessage = "";
-    variables.soundStartGame.play();
+    // soundStartGame.play();
   }
   HandleError();
   StartTimer();

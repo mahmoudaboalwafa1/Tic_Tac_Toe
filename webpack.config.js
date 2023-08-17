@@ -5,14 +5,14 @@ const CssMiniExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
   mode: "development",
   entry: "./main.js",
+  devtool: "inline-source-map",
   devServer: {
-    static: {
-      directory: path.join(__dirname, "dist"),
-    },
-    compress: true,
+    static: "./dist",
     port: 3000,
+    compress: true,
     hot: true,
   },
+
   optimization: {
     splitChunks: {
       chunks: "all",
@@ -41,7 +41,9 @@ module.exports = {
     ],
   },
   resolve: {
-    modules: ["module"],
+    fallback: {
+      events: require.resolve("events/"),
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({

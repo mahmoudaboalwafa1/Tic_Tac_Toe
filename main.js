@@ -1,19 +1,18 @@
 // Global Variables
 
 // hot module webpack
-if (module.hot) {
-  module.hot.accept();
-}
 
-import * as theme from "themes.js";
-import { Logic } from "Logic.js";
-import { startGame } from "startGame.js";
-import { ChooseTicOrToc } from "ChooseX_O.js";
+import * as theme from "./module/themes.js";
+import { Logic } from "./module/logic.js";
+import { startGame } from "./module/startGame.js";
+import { ChooseTicOrToc } from "./module/ChooseX_O.js";
 import style from "./style.css";
-import Players from "players.js";
+import Players from "./module/players.js";
+import ApplyThemes from "./module/ApplyTheme.js";
 
 theme.SetTheme(theme.themeNowX, theme.themeNowO);
 Players();
 startGame();
 Logic();
+ApplyThemes();
 ChooseTicOrToc();
