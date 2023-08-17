@@ -16,6 +16,16 @@ export let themeNowO = "";
 
 // ApplyTheme Functionality
 const ApplyTheme = () => {
+  const resultGames = () => {
+    const divCollectionXO = document.createElement("div");
+
+    const textGame = document.createTextNode("Game");
+    divCollectionXO.appendChild(themeNowX);
+    divCollectionXO.appendChild(themeNowO);
+    divCollectionXO.appendChild(textGame);
+
+    result.appendChild(divCollectionXO);
+  };
   themes.forEach((themeArea) => {
     if (themeNowX === "theme-1") {
       let player_x_Img = document.createElement("img");
@@ -26,6 +36,9 @@ const ApplyTheme = () => {
 
       themeNowX = player_x_Img;
       themeNowO = player_o_Img;
+      result?.children[0]?.remove();
+
+      resultGames();
     }
     if (themeNowX === "theme-2") {
       let player_x_Img = document.createElement("img");
@@ -36,6 +49,9 @@ const ApplyTheme = () => {
 
       themeNowX = player_x_Img;
       themeNowO = player_o_Img;
+      result?.children[0]?.remove();
+
+      resultGames();
     }
     if (themeNowX === "theme-3") {
       let player_x_Img = document.createElement("img");
@@ -46,6 +62,9 @@ const ApplyTheme = () => {
 
       themeNowX = player_x_Img;
       themeNowO = player_o_Img;
+      result?.children[0]?.remove();
+
+      resultGames();
     }
     if (themeNowX === "theme-4") {
       let player_x_Img = document.createElement("img");
@@ -56,17 +75,10 @@ const ApplyTheme = () => {
 
       themeNowX = player_x_Img;
       themeNowO = player_o_Img;
+      result?.children[0]?.remove();
+      resultGames();
     }
   });
-
-  const divCollectionXO = document.createElement("div");
-
-  const textGame = document.createTextNode("Game");
-  divCollectionXO.appendChild(themeNowX);
-  divCollectionXO.appendChild(themeNowO);
-  divCollectionXO.appendChild(textGame);
-
-  result.appendChild(divCollectionXO);
 };
 
 // Set Theme

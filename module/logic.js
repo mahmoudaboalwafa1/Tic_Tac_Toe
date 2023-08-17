@@ -16,15 +16,10 @@ export const Logic = () => {
         box.innerHTML = `<img src="${themeNowX.src}"/>`;
         result.appendChild(themeNowO);
         setPlay("o");
-
-        console.log(box.innerHTML);
-        // soundPlayerO.play();
       } else if (box.innerHTML.length === 0 && getPlay() == "o") {
         box.innerHTML = `<img src="${themeNowO.src}"/>`;
         result.appendChild(themeNowX);
         setPlay("x");
-
-        // soundPlayerX.play();
       }
       // Rows
       if (

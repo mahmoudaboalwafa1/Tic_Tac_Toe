@@ -31,8 +31,8 @@ export const endGame = (num1, num2, num3) => {
       : "black";
   app.classList.add("disable");
   result.classList.add("winner");
-  result.appendChild(num1);
-  result.innerHTML += "is Winner";
+  result.innerHTML = `<img src=${num1.children[0].src}/> is Winner`;
+
   let close = 1;
   setWin(true);
   let interval = setInterval(() => {
