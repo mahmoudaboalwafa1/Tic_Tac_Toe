@@ -1,4 +1,4 @@
-import { getAlertMessage, getPlay, setAlertMessage, setWin } from "./state.js";
+import { getAlertMessage, getPlay, setAlertMessage } from "./state.js";
 import * as variables from "./variables.js";
 import StartTimer from "./StartTimer.js";
 import { getThemeSelected } from "./state.js";
@@ -20,6 +20,25 @@ const HandleError = () => {
   }
 };
 
+export const changeColorBoxes = () => {
+  variables.boxes.forEach((box) => {
+    if (box.classList.contains("theme-1")) {
+      box.style.backgroundColor = "#f04";
+    }
+    if (box.classList.contains("theme-2")) {
+      box.style.backgroundColor = "black";
+    }
+    if (box.classList.contains("theme-3")) {
+      box.style.backgroundColor = "lightseagreen";
+    }
+    if (box.classList.contains("theme-4")) {
+      box.style.backgroundColor = "rebeccapurple";
+    }
+  });
+  variables.app.classList.remove("disable");
+  StartTimer();
+};
+
 // Handle BTn Start
 export const HandleBTNStart = () => {
   if (variables.name.value === "") {
@@ -33,11 +52,10 @@ export const HandleBTNStart = () => {
     variables.nameArea.textContent = variables.name.value;
     HideGame("block");
     setAlertMessage("");
-    variables.app.classList.remove("disable");
+    changeColorBoxes();
     // soundStartGame.play();
   }
   HandleError();
-  StartTimer();
 };
 
 variables.btnStart.addEventListener("click", () => HandleBTNStart());

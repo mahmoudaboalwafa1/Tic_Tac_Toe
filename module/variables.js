@@ -11,5 +11,6 @@ export const o = document.getElementById("o");
 export const btnStart = document.querySelector(".start-game button");
 export const themes = document.querySelectorAll(".themes-area img");
 export const erorrElement = document.getElementById("error");
+export const result_container = document.querySelector("ul.result");
 
 export const tree = document.querySelector(".tree");

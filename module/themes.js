@@ -55,6 +55,9 @@ const ApplyTheme = () => {
 export const SetTheme = () => {
   themes.forEach((theme, index) => {
     theme.addEventListener("click", () => {
+      boxes.forEach((box) => (box.className = ""));
+      boxes.forEach((box) => (box.className = "box"));
+
       setThemeSelected(theme.dataset.theme);
 
       game_container.className = getThemeNext() ? "" : theme.dataset.theme;

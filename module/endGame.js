@@ -1,6 +1,7 @@
 import { HideGame } from "./startGame.js";
 import {
   getThemeSelected,
+  getWhoWin,
   setAlertMessage,
   setPlay,
   setThemeNext,
@@ -17,50 +18,40 @@ import {
   themes,
   x,
   o,
+  timer,
 } from "./variables.js";
 
-const EndGame = (arg) => {
+export const reset = (text) => {
   setThemeSelected("");
   setAlertMessage("");
-  HideGame("none");
-  setThemeNext("");
-  setPlay("");
   boxes.forEach((box) => (box.innerHTML = ""));
-  result.innerHTML = "";
-  themes.forEach((theme) => {
-    theme.className = "";
-    theme.style.borderImage = "none";
-  });
-  x.style.color = "black";
-  o.style.color = "black";
+  timer.className = "";
+
   name.value = "";
-
-  startGameArea.style.display = "block";
   const divCollectionXO = document.createElement("div");
-
-  const textGame = document.createTextNode("Game");
+  const textGame = document.createTextNode(text);
   divCollectionXO.appendChild(themeNowX);
   divCollectionXO.appendChild(themeNowO);
   divCollectionXO.appendChild(textGame);
 
   result.appendChild(divCollectionXO);
-  setWin(false);
-  setTimer(100);
-  const nums = arg;
-
-  for (let i = 0; i < nums.length; i++) {
-    const colorNow = () => {
-      const color = getThemeSelected().includes("theme-1")
-        ? "#f04"
-        : getThemeSelected().includes("theme-2")
-        ? "black"
-        : getThemeSelected().includes("theme-3")
-        ? "lightseagreen"
-        : "rebeccapurple";
-      return color;
-    };
-    nums[i].style.backgroundColor = colorNow();
-  }
 };
 
-export default EndGame;
+export const EndGame = () => {
+  reset("Game");
+  result.innerHTML = "";
+  themes.forEach((theme) => {
+    theme.className = "";
+    theme.style.borderImage = "none";
+  });
+  startGameArea.style.display = "block";
+  x.style.color = "black";
+  o.style.color = "black";
+
+  name.value = "";
+  HideGame("none");
+  setWin(false);
+  setTimer(100);
+  setThemeNext("");
+  setPlay("");
+};

@@ -1,15 +1,14 @@
 // End Game Logic
 
 import { result, app } from "./variables.js";
-import { getWin, setWin } from "./state.js";
+import { getWin, setWhoWin, setWin } from "./state.js";
 import { getThemeSelected } from "./state.js";
-import EndGame from "./EndGame.js";
+import { EndGame } from "./EndGame.js";
 
 export const WinGame = (...arg) => {
   setWin(true);
-  const nums = arg;
   if (getWin()) {
-    for (let i = 0; i < nums.length; i++) {
+    for (let i = 0; i < arg.length; i++) {
       const colorNow = () => {
         const color = getThemeSelected().includes("theme-1")
           ? "lightseagreen"
@@ -20,22 +19,23 @@ export const WinGame = (...arg) => {
           : "black";
         return color;
       };
-      nums[i].style.backgroundColor = colorNow();
+      arg[i].style.backgroundColor = colorNow();
     }
   }
 
   result.classList.add("winner");
   app.classList.add("disable");
 
-  result.innerHTML = `<img src=${nums[0].children[0].src}/> is Winner`;
+  result.innerHTML = `<img src=${arg[0].children[0].src}/> is Winner`;
 
   let close = 1;
 
   let interval = setInterval(() => {
     result.innerHTML += ".";
     if (close === 3) {
+      EndGame();
       clearInterval(interval);
-      EndGame(nums);
+      setWhoWin(false);
     }
     ++close;
   }, 1000);

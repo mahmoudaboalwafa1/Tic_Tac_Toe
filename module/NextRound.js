@@ -1,18 +1,29 @@
-import { getWhoWin, getThemeSelected, setThemeNext } from "./state.js";
+import { EndGame, reset } from "./EndGame.js";
+import StartTimer from "./StartTimer.js";
+import { HideGame, changeColorBoxes } from "./startGame.js";
+import { getWhoWin, setTimer } from "./state.js";
+import { app, boxes, result, result_container } from "./variables.js";
 
 let Themes = ["theme-1", "theme-2", "theme-3", "theme-4"];
 let nextTheme = "";
-
+let round = 1;
 const NextRound = () => {
   if (getWhoWin()) {
-    console.log(Themes[Math.floor(Math.random() * 4)]);
+    ++round;
     setTimeout(() => {
+      result.innerHTML = "";
       nextTheme = Themes[Math.floor(Math.random() * 4)];
-      getThemeSelected() === nextTheme && getThemeSelected() != 4
-        ? setThemeNext(Themes[Math.floor(Math.random() * 4) + 2])
-        : setThemeNext(Themes[Math.floor(Math.random() * 4) - 2]);
 
-      console.log(getThemeSelected());
+      HideGame("block");
+      result_container.classList.add(nextTheme);
+      boxes.forEach((box) => {
+        box.className = "box";
+        box.classList.add(nextTheme);
+      });
+      changeColorBoxes();
+      app.classList.remove("disable");
+      setTimer(100);
+      reset(`Round ${round}`);
     }, 3000);
   }
 };

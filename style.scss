@@ -154,6 +154,11 @@ div.app div:hover {
     width: 100%;
   }
 
+  p#error {
+    background-color: #f04;
+    margin-bottom: 20px;
+  }
+
   button {
     background-image: url("./images/bg-btn-start.jpg");
     border: 1px solid #f05;
@@ -171,44 +176,6 @@ div.app div:hover {
       padding: 0;
       font-size: 16px;
     }
-  }
-
-  img.tree {
-    position: fixed;
-    top: 500px;
-    left: -300px;
-
-    @media (width <= 670px) {
-      top: 199px;
-      left: -448px;
-    }
-  }
-
-  p.players {
-    position: fixed;
-    bottom: 17px;
-    font-weight: bold;
-    left: 0 !important;
-
-    @media (width <= 670px) {
-      bottom: 183px;
-    }
-  }
-
-  img.show-players,
-  p.show-players {
-    top: 0 !important;
-    height: 100vh;
-    left: 50% !important;
-    transform: translateX(-50%);
-  }
-
-  .show-players {
-    animation: showTree 2s ease-in !important;
-  }
-
-  p.show-players {
-    top: 50px !important;
   }
 }
 
@@ -240,7 +207,7 @@ div.app div:hover {
 
 // Color Themes
 div.app div {
-  height: calc(100vh - 480px);
+  height: calc(100vh - 440px);
   width: 90%;
   animation: animBox 0.8s linear;
 }
