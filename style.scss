@@ -31,7 +31,6 @@ body {
   overflow-x: hidden;
   background-color: springgreen;
   border: 15px solid transparent;
-  border-image: url("./images/border-leaf.png") 10;
   padding-bottom: 20px;
 }
 
@@ -66,17 +65,14 @@ ul.result {
   }
 
   li:first-of-type {
-    color: black;
+    color: white;
     position: absolute !important;
     left: 22px !important;
     font-size: 18px !important;
+    font-weight: bold;
 
     @media (width <= 600px) {
       position: unset !important;
-    }
-
-    &.theme-2 {
-      color: white;
     }
   }
 
@@ -110,7 +106,7 @@ ul.result {
   li:last-of-type {
     padding-top: 10px;
 
-    @media (600px <= width <= 992px) {
+    @media (width >= 600px) {
       position: absolute;
       right: 22px;
     }
@@ -292,13 +288,6 @@ div.app div.theme-4 {
   .active {
     width: 100%;
     border: 10px solid transparent;
-    &:hover {
-      border-image: url("./images/border-leaf.png") 10;
-    }
-
-    &.active {
-      border-image: url("./images/border-leaf.png") 10;
-    }
   }
 }
 

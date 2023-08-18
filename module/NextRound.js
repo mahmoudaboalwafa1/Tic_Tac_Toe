@@ -9,8 +9,10 @@ const NextRound = () => {
     setTimeout(() => {
       nextTheme = Themes[Math.floor(Math.random() * 4)];
       getThemeSelected() === nextTheme && getThemeSelected() != 4
-        ? setThemeNext(Themes[Math.floor(Math.random() * 4) + 1])
-        : setThemeNext(Themes[Math.floor(Math.random() * 4) - 1]);
+        ? setThemeNext(Themes[Math.floor(Math.random() * 4) + 2])
+        : setThemeNext(Themes[Math.floor(Math.random() * 4) - 2]);
+
+      console.log(getThemeSelected());
     }, 3000);
   }
 };

@@ -1,6 +1,6 @@
-// Here Logic game put x or o in box and endGame
+// Here Logic game put x or o in box and WinGame
 
-import { endGame } from "./endGame.js";
+import { WinGame } from "./WinGame.js";
 import { getPlay, setPlay } from "./state.js";
 import { themeNowO, themeNowX } from "./themes.js";
 import { boxes, result } from "./variables.js";
@@ -21,68 +21,43 @@ export const Logic = () => {
         result.appendChild(themeNowX);
         setPlay("x");
       }
+
       // Rows
-      if (
-        boxes[0].innerHTML == boxes[1].innerHTML &&
-        boxes[1].innerHTML == boxes[2].innerHTML &&
-        boxes[0].innerHTMl != "" &&
-        boxes[1].innerHTML != ""
-      ) {
-        endGame(boxes[0], boxes[1], boxes[2]);
-      } else if (
-        boxes[3].innerHTML == boxes[4].innerHTML &&
-        boxes[4].innerHTML == boxes[5].innerHTML &&
-        boxes[4].innerHTMl != "" &&
-        boxes[5].innerHTML != ""
-      ) {
-        endGame(boxes[3], boxes[4], boxes[5]);
-      } else if (
-        boxes[6].innerHTML == boxes[7].innerHTML &&
-        boxes[7].innerHTML == boxes[8].innerHTML &&
-        boxes[8].innerHTMl != "" &&
-        boxes[7].innerHTML != ""
-      ) {
-        endGame(boxes[6], boxes[7], boxes[8]);
+      function Rows(boxOne, boxTwo, boxThree) {
+        if (
+          boxes[boxOne].innerHTML == boxes[boxTwo].innerHTML &&
+          boxes[boxTwo].innerHTML == boxes[boxThree].innerHTML &&
+          boxes[boxOne].innerHTMl != "" &&
+          boxes[boxTwo].innerHTML != ""
+        ) {
+          WinGame(boxes[boxOne], boxes[boxOne], boxes[boxThree]);
+        }
       }
-      // Rows
+
+      Rows(0, 1, 2);
+      Rows(3, 4, 5);
+      Rows(6, 7, 8);
 
       // columns
-      else if (
-        boxes[0].innerHTML == boxes[3].innerHTML &&
-        boxes[3].innerHTML == boxes[6].innerHTML &&
-        boxes[6].innerHTMl != "" &&
-        boxes[3].innerHTML != ""
-      ) {
-        endGame(boxes[0], boxes[3], boxes[6]);
-      } else if (
-        boxes[1].innerHTML == boxes[4].innerHTML &&
-        boxes[4].innerHTML == boxes[7].innerHTML &&
-        boxes[7].innerHTMl != "" &&
-        boxes[4].innerHTML != ""
-      ) {
-        endGame(boxes[1], boxes[4], boxes[7]);
-      } else if (
-        boxes[2].innerHTML == boxes[5].innerHTML &&
-        boxes[5].innerHTML == boxes[8].innerHTML &&
-        boxes[8].innerHTMl != "" &&
-        boxes[5].innerHTML != ""
-      ) {
-        endGame(boxes[2], boxes[5], boxes[8]);
-      } else if (
-        boxes[0].innerHTML == boxes[4].innerHTML &&
-        boxes[4].innerHTML == boxes[8].innerHTML &&
-        boxes[8].innerHTMl != "" &&
-        boxes[4].innerHTML != ""
-      ) {
-        endGame(boxes[0], boxes[4], boxes[8]);
-      } else if (
-        boxes[2].innerHTML == boxes[4].innerHTML &&
-        boxes[4].innerHTML == boxes[6].innerHTML &&
-        boxes[6].innerHTMl != "" &&
-        boxes[4].innerHTML != ""
-      ) {
-        endGame(boxes[2], boxes[4], boxes[6]);
-      } else if (
+      const Columns = (ColOne, ColTwo, ColThree) => {
+        if (
+          boxes[ColOne].innerHTML == boxes[ColTwo].innerHTML &&
+          boxes[ColTwo].innerHTML == boxes[ColThree].innerHTML &&
+          boxes[ColThree].innerHTMl != "" &&
+          boxes[ColTwo].innerHTML != ""
+        ) {
+          WinGame(boxes[ColOne], boxes[ColTwo], boxes[ColThree]);
+        }
+      };
+
+      Columns(0, 3, 6);
+      Columns(1, 4, 7);
+      Columns(2, 5, 8);
+      Columns(0, 4, 8);
+      Columns(2, 4, 6);
+
+      // No Any Body Win
+      if (
         boxes[0].innerHTML.length > 0 &&
         boxes[1].innerHTML.length > 0 &&
         boxes[2].innerHTML.length > 0 &&

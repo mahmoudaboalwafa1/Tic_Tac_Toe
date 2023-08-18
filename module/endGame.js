@@ -1,45 +1,66 @@
-// End Game Logic
+import { HideGame } from "./startGame.js";
+import {
+  getThemeSelected,
+  setAlertMessage,
+  setPlay,
+  setThemeNext,
+  setThemeSelected,
+  setTimer,
+  setWin,
+} from "./state.js";
+import { themeNowO, themeNowX } from "./themes.js";
+import {
+  boxes,
+  name,
+  result,
+  startGameArea,
+  themes,
+  x,
+  o,
+} from "./variables.js";
 
-import { result, app } from "./variables.js";
-import { setWin } from "./state.js";
-import { getThemeSelected } from "./state.js";
+const EndGame = (arg) => {
+  setThemeSelected("");
+  setAlertMessage("");
+  HideGame("none");
+  setThemeNext("");
+  setPlay("");
+  boxes.forEach((box) => (box.innerHTML = ""));
+  result.innerHTML = "";
+  themes.forEach((theme) => {
+    theme.className = "";
+    theme.style.borderImage = "none";
+  });
+  x.style.color = "black";
+  o.style.color = "black";
+  name.value = "";
 
-export const endGame = (num1, num2, num3) => {
-  num1.style.backgroundColor =
-    getThemeSelected() === "theme-1"
-      ? "lightseagreen"
-      : getThemeSelected() === "theme-2"
-      ? "#f04"
-      : getThemeSelected() === "theme-3"
-      ? "rebeccapurple"
-      : "black";
-  num2.style.backgroundColor =
-    getThemeSelected() === "theme-1"
-      ? "lightseagreen"
-      : getThemeSelected() === "theme-2"
-      ? "#f04"
-      : getThemeSelected() === "theme-3"
-      ? "rebeccapurple"
-      : "black";
-  num3.style.backgroundColor =
-    getThemeSelected() === "theme-1"
-      ? "lightseagreen"
-      : getThemeSelected() === "theme-2"
-      ? "#f04"
-      : getThemeSelected() === "theme-3"
-      ? "rebeccapurple"
-      : "black";
-  app.classList.add("disable");
-  result.classList.add("winner");
-  result.innerHTML = `<img src=${num1.children[0].src}/> is Winner`;
+  startGameArea.style.display = "block";
+  const divCollectionXO = document.createElement("div");
 
-  let close = 1;
-  setWin(true);
-  let interval = setInterval(() => {
-    result.innerHTML += ".";
-    if (close === 3) {
-      clearInterval(interval);
-    }
-    ++close;
-  }, 1000);
+  const textGame = document.createTextNode("Game");
+  divCollectionXO.appendChild(themeNowX);
+  divCollectionXO.appendChild(themeNowO);
+  divCollectionXO.appendChild(textGame);
+
+  result.appendChild(divCollectionXO);
+  setWin(false);
+  setTimer(100);
+  const nums = arg;
+
+  for (let i = 0; i < nums.length; i++) {
+    const colorNow = () => {
+      const color = getThemeSelected().includes("theme-1")
+        ? "#f04"
+        : getThemeSelected().includes("theme-2")
+        ? "black"
+        : getThemeSelected().includes("theme-3")
+        ? "lightseagreen"
+        : "rebeccapurple";
+      return color;
+    };
+    nums[i].style.backgroundColor = colorNow();
+  }
 };
+
+export default EndGame;

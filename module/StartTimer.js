@@ -1,28 +1,27 @@
 import * as variables from "./variables.js";
 import { boxes } from "./variables.js";
-import { getWin, getWhoWin } from "./state.js";
-let widthTimer = 100;
+import { getWin, getWhoWin, getTimer, setTimer } from "./state.js";
 const StartTimer = () => {
   let interval = setInterval(() => {
-    variables.timer.style.width = `${widthTimer}%`;
-    variables.timer.style.height = `${widthTimer}%`;
+    variables.timer.style.width = `${getTimer()}%`;
+    variables.timer.style.height = `${getTimer()}%`;
     boxes.forEach((box) => {
-      box.style.width = `${widthTimer}%`;
+      box.style.width = `${getTimer()}%`;
     });
 
-    if (widthTimer === 0 || getWin() || getWhoWin()) {
+    if (getTimer() === 0 || getWin() || getWhoWin()) {
       clearInterval(interval);
     }
 
-    if (widthTimer <= 60 && widthTimer >= 36 && !getWin() && !getWhoWin()) {
+    if (getTimer() <= 60 && getTimer() >= 36 && !getWin() && !getWhoWin()) {
       variables.timer.classList.remove("harryup");
       variables.timer.classList.add("speed");
-    } else if (widthTimer <= 35 && !getWin()) {
+    } else if (getTimer() <= 35 && !getWin()) {
       variables.timer.classList.remove("speed");
       variables.timer.classList.add("harryup");
     }
 
-    --widthTimer;
+    setTimer(getTimer() - 1);
   }, 350);
 };
 

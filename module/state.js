@@ -3,6 +3,8 @@ let win = false;
 let whoWin = false;
 let themeSelected = "";
 let themeNext = "";
+let alertMessage = "";
+let Timer = 100;
 
 export const getPlay = () => play;
 export const setPlay = (value) => (play = value);
@@ -14,3 +16,7 @@ export const getThemeSelected = () => themeSelected;
 export const setThemeSelected = (value) => (themeSelected = value);
 export const getThemeNext = () => themeNext;
 export const setThemeNext = (value) => (themeNext = value);
+export const getAlertMessage = () => alertMessage;
+export const setAlertMessage = (value) => (alertMessage = value);
+export const getTimer = () => Timer;
+export const setTimer = (value) => (Timer = value);
