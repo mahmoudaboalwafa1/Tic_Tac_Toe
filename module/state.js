@@ -1,4 +1,5 @@
 let play = "";
+let playComputer = "";
 let win = false;
 let whoWin = false;
 let themeSelected = "";
@@ -20,3 +21,5 @@ export const getAlertMessage = () => alertMessage;
 export const setAlertMessage = (value) => (alertMessage = value);
 export const getTimer = () => Timer;
 export const setTimer = (value) => (Timer = value);
+export const getPlayComputer = () => playComputer;
+export const setPlayComputer = (value) => (playComputer = value);

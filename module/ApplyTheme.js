@@ -24,7 +24,6 @@ const ApplyThemes = () => {
         : "";
     });
   });
-  btnStart.style.backgroundImage = btnStartImg;
 };
 
 export default ApplyThemes;

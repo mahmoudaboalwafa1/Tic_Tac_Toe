@@ -2,6 +2,8 @@ import { getAlertMessage, getPlay, setAlertMessage } from "./state.js";
 import * as variables from "./variables.js";
 import StartTimer from "./StartTimer.js";
 import { getThemeSelected } from "./state.js";
+import PlayWithFriend from "./PlayWithFriend.js";
+import PlayWithPc from "./PlayWithPc.js";
 
 // Hide Start Game
 export const startGame = () => {
@@ -21,6 +23,7 @@ const HandleError = () => {
 };
 
 export const changeColorBoxes = () => {
+  StartTimer();
   variables.boxes.forEach((box) => {
     if (box.classList.contains("theme-1")) {
       box.style.backgroundColor = "#f04";
@@ -36,11 +39,10 @@ export const changeColorBoxes = () => {
     }
   });
   variables.app.classList.remove("disable");
-  StartTimer();
 };
 
 // Handle BTn Start
-export const HandleBTNStart = () => {
+export const HandleBTNStart = (playing) => {
   if (variables.name.value === "") {
     setAlertMessage("You Must Fill Your Name");
   } else if (getThemeSelected() === "") {
@@ -53,9 +55,17 @@ export const HandleBTNStart = () => {
     HideGame("block");
     setAlertMessage("");
     changeColorBoxes();
+
+    playing.includes("friend") ? PlayWithFriend() : PlayWithPc();
+
     // soundStartGame.play();
   }
   HandleError();
 };
 
-variables.btnStart.addEventListener("click", () => HandleBTNStart());
+variables.playWithFriend.addEventListener("click", () =>
+  HandleBTNStart("friend")
+);
+variables.playWithComputer.addEventListener("click", () =>
+  HandleBTNStart("computer")
+);

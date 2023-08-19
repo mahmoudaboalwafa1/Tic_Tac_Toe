@@ -1,67 +1,42 @@
 // Here Logic game put x or o in box and WinGame
 
 import { WinGame } from "./WinGame.js";
-import { getPlay, setAlertMessage, setPlay } from "./state.js";
+import {
+  getPlay,
+  getPlayComputer,
+  getWhoWin,
+  getWin,
+  setAlertMessage,
+  setPlay,
+  setTimer,
+} from "./state.js";
 import { themeNowO, themeNowX } from "./themes.js";
 import { boxes, result } from "./variables.js";
 import { setWhoWin } from "./state.js";
 import NextRound from "./NextRound.js";
-import StartTimer from "./StartTimer.js";
+import MatchColsAndRows from "./MatchColRow.js";
+import LogicComputer from "./LogicComputer.js";
 
-export const Logic = () => {
+export const Logic = (playing) => {
   setAlertMessage("");
-  boxes.forEach((box, index) => {
-    if (box.classList.contains("player") === false) {
-      box.onclick = () => {
+  boxes.forEach((box) => {
+    box.onclick = () => {
+      if (box.innerHTML.length === 0) {
         result?.children[0]?.remove();
         if (box.innerHTML.length === 0 && getPlay() == "x") {
           box.innerHTML = `<img src="${themeNowX.src}"/>`;
-          box.classList.add("player");
           result.appendChild(themeNowO);
-          setPlay("o");
+          playing != "computer" && setPlay("o");
+          setWhoWin(false);
         } else if (box.innerHTML.length === 0 && getPlay() == "o") {
           box.innerHTML = `<img src="${themeNowO.src}"/>`;
-          box.classList.add("player");
 
           result.appendChild(themeNowX);
-          setPlay("x");
+          playing != "computer" && setPlay("x");
+          setWhoWin(false);
         }
 
-        // Rows
-        function Rows(RowOne, RowTwo, RowThree) {
-          if (
-            boxes[RowOne].innerHTML == boxes[RowTwo].innerHTML &&
-            boxes[RowTwo].innerHTML == boxes[RowThree].innerHTML &&
-            boxes[RowOne].innerHTMl != "" &&
-            boxes[RowTwo].innerHTML != ""
-          ) {
-            WinGame(boxes[RowOne], boxes[RowOne], boxes[RowThree]);
-          }
-        }
-
-        Rows(2, 6, 4);
-        Rows(2, 4, 6);
-        Rows(0, 4, 8);
-        Rows(0, 8, 4);
-
-        // columns
-        const Columns = (ColOne, ColTwo, ColThree) => {
-          if (
-            boxes[ColOne].innerHTML == boxes[ColTwo].innerHTML &&
-            boxes[ColTwo].innerHTML == boxes[ColThree].innerHTML &&
-            boxes[ColThree].innerHTMl != "" &&
-            boxes[ColTwo].innerHTML != ""
-          ) {
-            WinGame(boxes[ColOne], boxes[ColTwo], boxes[ColThree]);
-          }
-        };
-
-        Columns(0, 3, 6);
-        Columns(0, 1, 2);
-        Columns(6, 7, 8);
-        Columns(1, 4, 7);
-        Columns(3, 4, 5);
-        Columns(2, 5, 8);
+        MatchColsAndRows();
 
         // No Any Body Win
         if (
@@ -77,9 +52,37 @@ export const Logic = () => {
         ) {
           setWhoWin(true);
           NextRound();
-          StartTimer();
         }
-      };
-    }
+
+        if (playing === "computer") {
+          let emptyBoxes = [...boxes].filter(
+            (boxs) => boxs.innerHTML.length === 0
+          );
+
+          const randPlay = Math.floor(Math.random() * emptyBoxes.length);
+
+          if (
+            emptyBoxes[randPlay]?.innerHTML?.length === 0 &&
+            getPlayComputer() == "x" &&
+            !getWin()
+          ) {
+            emptyBoxes[randPlay].innerHTML = `<img src="${themeNowX.src}"/>`;
+
+            result.innerHTML = `You:<img src="${themeNowO.src}"/>PC:<img src="${themeNowX.src}"/>`;
+            setWhoWin();
+          } else if (
+            emptyBoxes[randPlay]?.innerHTML?.length === 0 &&
+            getPlayComputer() == "o" &&
+            !getWin()
+          ) {
+            result.innerHTML = `You:<img src="${themeNowX.src}"/>PC:<img src="${themeNowO.src}"/>`;
+            emptyBoxes[randPlay].innerHTML = `<img src="${themeNowO.src}"/>`;
+
+            setWhoWin(false);
+          }
+          MatchColsAndRows();
+        }
+      }
+    };
   });
 };

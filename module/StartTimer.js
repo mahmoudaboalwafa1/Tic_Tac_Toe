@@ -5,11 +5,13 @@ const StartTimer = () => {
   let interval = setInterval(() => {
     variables.timer.style.width = `${getTimer()}%`;
     variables.timer.style.height = `${getTimer()}%`;
+    variables.app.classList.remove("disable");
+
     boxes.forEach((box) => {
       box.style.width = `${getTimer()}%`;
     });
 
-    if (getTimer() === 0 || getWin() || getWhoWin()) {
+    if (getTimer() === 0 || getWin()) {
       clearInterval(interval);
     }
 
