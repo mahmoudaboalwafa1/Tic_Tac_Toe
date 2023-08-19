@@ -14,12 +14,21 @@
     />
     <!-- Google Fonts -->
 
-    <link rel="shortcut icon" href="./tic-tac-toe.png" type="image/x-icon" />
-    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="shortcut icon"
+      href="././images/tic-tac-toe.png"
+      type="image/x-icon"
+    />
   </head>
   <body>
-    <div class="game-container">
-      <div class="result"><span>X O</span> Game</div>
+    <div class="game-container theme-1">
+      <ul class="result">
+        <li></li>
+        <li>
+          <p></p>
+        </li>
+        <li></li>
+      </ul>
       <div class="app">
         <div class="box" id="col-1"></div>
         <div class="box" id="col-2"></div>
@@ -32,6 +41,24 @@
         <div class="box" id="col-9"></div>
       </div>
     </div>
-    <script src="./main.js"></script>
+
+    <div class="start-game">
+      <input id="name" type="text" placeholder="your name" />
+      <p>choose <span id="x">X</span> or <span id="o">O</span></p>
+      <p>select your theme</p>
+      <ul class="themes-area">
+        <li>
+          <img data-theme="theme-1" />
+        </li>
+        <li><img data-theme="theme-2" /></li>
+        <li><img data-theme="theme-3" /></li>
+        <li><img data-theme="theme-4" /></li>
+      </ul>
+      <p id="error"></p>
+      <button id="friend">Play With Friend</button>
+      <button id="computer">Play With Computer</button>
+    </div>
+    <script src="./dist/main.bundle.js" type="module"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
   </body>
 </html>
