@@ -1,0 +1,39 @@
+{
+  "name": "xo_game",
+  "version": "1.0.0",
+  "description": "Xo Game",
+  "main": "main.js",
+  "scripts": {
+    "dev": "webpack",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mahmoudaboalwafa1/Tic_Tac_Toe.git"
+  },
+  "keywords": [
+    "html",
+    "css",
+    "javascript",
+    "tic_tac_toe",
+    "xo"
+  ],
+  "author": "mahmoud_abo_alwafa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mahmoudaboalwafa1/Tic_Tac_Toe/issues"
+  },
+  "homepage": "https://github.com/mahmoudaboalwafa1/Tic_Tac_Toe#readme",
+  "devDependencies": {
+    "css-loader": "^6.8.1",
+    "dotenv": "^16.3.1",
+    "events": "^3.3.0",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.3",
+    "mini-css-extract-plugin": "^2.7.6",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  }
+}

@@ -1,0 +1,295 @@
+$theme-1: #f05;
+$theme-2: black;
+$theme-3: lightseagreen;
+$theme-4: rebeccapurple;
+$yellow_color: rgb(255, 255, 0);
+
+@import url("https://fonts.googleapis.com/css2?family=Itim&family=Unbounded:wght@300;400;500;600;700;900&display=swap");
+
+@mixin ShowGameAnimation($lastLeft) {
+  @keyframes showGame {
+    0% {
+      left: -1000px;
+    }
+    50% {
+      left: -500px;
+    }
+    100% {
+      left: $lastLeft;
+    }
+  }
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Unbounded", cursive;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: springgreen;
+  border: 15px solid transparent;
+  padding-bottom: 20px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+div.game-container {
+  text-align: center;
+  width: 800px;
+  margin: 0 auto;
+
+  @media (max-width: 800px) {
+    width: 100%;
+  }
+}
+
+ul.result {
+  height: 75px;
+  font-size: 30px;
+  color: white;
+  padding-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  @media (width <= 600px) {
+    flex-direction: column !important;
+    height: auto !important;
+    position: unset !important;
+  }
+
+  li:first-of-type {
+    color: white;
+    position: absolute !important;
+    left: 22px !important;
+    font-size: 18px !important;
+    font-weight: bold;
+
+    @media (width <= 600px) {
+      position: unset !important;
+    }
+  }
+
+  li:nth-child(2) {
+    border: 2px solid white;
+    width: 35px;
+    height: 35px;
+    contain: block-size;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & p {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background-color: #0074ff;
+    }
+
+    & p.harryup {
+      background-color: red;
+    }
+
+    & p.speed {
+      background-color: yellow;
+    }
+  }
+
+  li:last-of-type {
+    padding-top: 10px;
+
+    @media (width >= 600px) {
+      position: absolute;
+      right: 22px;
+    }
+
+    @media (width <= 600px) {
+      position: unset;
+    }
+  }
+}
+
+div.app {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: springgreen;
+  gap: 10px;
+}
+
+div.app div {
+  color: white;
+  width: 90%;
+  height: 80px;
+  font-size: 40px;
+  flex-basis: 30%;
+  margin-top: 10px;
+  margin-left: 15px;
+  line-height: 80px;
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+
+div.app div:hover {
+  background-color: black;
+}
+
+.disable {
+  pointer-events: none;
+}
+
+.start-game {
+  width: 800px;
+  margin: 0 auto;
+  text-align: center;
+
+  @media (max-width: 800px) {
+    width: 100%;
+  }
+
+  p#error {
+    background-color: #f04;
+    margin-bottom: 20px;
+  }
+
+  button {
+    background-image: url("./images/bg-btn-start.jpg");
+    border: 1px solid #f05;
+    width: 148px;
+    padding: 20px 0;
+    background-size: 106%;
+    font-size: 20px;
+    font-weight: bold;
+    background-position-x: 59%;
+    background-position-y: 76%;
+    background-repeat: no-repeat;
+
+    @media (max-width: 800px) {
+      width: 100px;
+      padding: 0;
+      font-size: 13px;
+    }
+  }
+}
+
+.start-game input {
+  margin-top: 20px;
+  background-color: transparent;
+  color: $theme-1;
+  border: 11px solid $theme-1;
+  text-align: center;
+  padding: 9px;
+  border-radius: 6px;
+  outline: none;
+  position: relative;
+  left: 0;
+  animation: showGame 1s;
+
+  @media (min-width: 801px) {
+    left: 0;
+  }
+}
+
+.start-game p {
+  margin-top: 20px;
+  letter-spacing: 10px;
+  span:hover {
+    color: $theme-1;
+  }
+}
+
+// Color Themes
+div.app div {
+  height: calc(100vh - 440px);
+  width: 90%;
+  animation: animBox 0.8s linear;
+}
+
+.theme-1,
+div.app div.theme-1 {
+  background-color: $theme-1;
+}
+
+.theme-2,
+div.app div.theme-2 {
+  background-color: $theme-2;
+}
+
+.theme-3,
+div.app div.theme-3 {
+  background-color: $theme-3;
+}
+
+.theme-4,
+div.app div.theme-4 {
+  background-color: $theme-4;
+}
+
+.themes-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 30px 0;
+
+  @media (max-width: 830px) {
+    flex-direction: column;
+  }
+
+  li {
+    width: 400px;
+    padding: 10px;
+    @media (max-width: 800px) {
+      width: 100%;
+    }
+  }
+
+  img,
+  .active {
+    width: 100%;
+    border: 10px solid transparent;
+  }
+}
+
+.result,
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img {
+    width: 50px;
+  }
+}
+
+li:not(.winner) {
+  img {
+    animation: imgAnim 0.3s ease-in;
+  }
+}
+
+@include ShowGameAnimation(0);
+
+@keyframes imgAnim {
+  from {
+    object-position: -50px;
+  }
+  to {
+    object-position: 0;
+  }
+}
+
+@keyframes animBox {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 90%;
+  }
+}
