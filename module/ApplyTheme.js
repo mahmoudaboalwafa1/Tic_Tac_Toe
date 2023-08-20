@@ -2,15 +2,16 @@ import ThemeAreaOne from "../images/themes/theme-1.PNG";
 import ThemeAreaTwo from "../images/themes/theme-2.PNG";
 import ThemeAreaThree from "../images/themes/theme-3.PNG";
 import ThemeAreaFour from "../images/themes/theme-4.PNG";
-import btnStartImg from "../images/bg-btn-start.jpg";
 import leafImg from "../images/border-leaf.png";
-import { btnStart, themes } from "./variables.js";
-import { getThemeSelected } from "./state";
+import { app, themes } from "./variables.js";
+import themeBgBodyOne from "../images/themes/bg-theme-2.jpg";
 
 const themeArea = [ThemeAreaOne, ThemeAreaTwo, ThemeAreaThree, ThemeAreaFour];
 
 const ApplyThemes = () => {
-  document.body.style.borderImage = `url(${leafImg}) 10`;
+  document.body.style.backgroundImage = `url("${themeBgBodyOne}")`;
+  app.style.backgroundImage = `url("${themeBgBodyOne}")`;
+
   themes.forEach((theme, index) => {
     theme.src = themeArea[index];
     theme.addEventListener("mouseenter", () => {

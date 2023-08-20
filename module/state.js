@@ -5,7 +5,7 @@ let whoWin = false;
 let themeSelected = "";
 let themeNext = "";
 let alertMessage = "";
-let Timer = 100;
+let Timer = 95;
 
 export const getPlay = () => play;
 export const setPlay = (value) => (play = value);

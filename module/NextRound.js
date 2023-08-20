@@ -8,7 +8,7 @@ let nextTheme = "";
 let round = 1;
 const NextRound = () => {
   if (getWhoWin()) {
-    setTimer(100);
+    setTimer(95);
     app.classList.add("disable");
     setTimeout(() => {
       result.innerHTML = "";

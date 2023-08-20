@@ -1,21 +1,17 @@
 // Here Logic game put x or o in box and WinGame
 
-import { WinGame } from "./WinGame.js";
 import {
   getPlay,
   getPlayComputer,
-  getWhoWin,
   getWin,
   setAlertMessage,
   setPlay,
-  setTimer,
 } from "./state.js";
 import { themeNowO, themeNowX } from "./themes.js";
 import { boxes, result } from "./variables.js";
 import { setWhoWin } from "./state.js";
 import NextRound from "./NextRound.js";
 import MatchColsAndRows from "./MatchColRow.js";
-import LogicComputer from "./LogicComputer.js";
 
 export const Logic = (playing) => {
   setAlertMessage("");

@@ -51,7 +51,7 @@ export const EndGame = () => {
   name.value = "";
   HideGame("none");
   setWin(false);
-  setTimer(100);
+  setTimer(95);
   setThemeNext("");
   setPlay("");
 };

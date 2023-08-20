@@ -29,9 +29,9 @@ $yellow_color: rgb(255, 255, 0);
 
 body {
   overflow-x: hidden;
-  background-color: springgreen;
   border: 15px solid transparent;
   padding-bottom: 20px;
+  color: black;
 }
 
 ul {
@@ -120,7 +120,6 @@ ul.result {
 div.app {
   display: grid;
   grid-template-columns: auto auto auto;
-  background-color: springgreen;
   gap: 10px;
 }
 
@@ -154,38 +153,47 @@ div.app div:hover {
     width: 100%;
   }
 
+  p.choose {
+    color: black;
+    span {
+      color: black;
+    }
+  }
+
   p#error {
     background-color: #f04;
     margin-bottom: 20px;
   }
 
-  button {
-    background-image: url("./images/bg-btn-start.jpg");
-    border: 1px solid #f05;
-    width: 148px;
-    padding: 20px 0;
-    background-size: 106%;
-    font-size: 20px;
-    font-weight: bold;
-    background-position-x: 59%;
-    background-position-y: 76%;
-    background-repeat: no-repeat;
-
-    @media (max-width: 800px) {
-      width: 100px;
-      padding: 0;
+  div.container-btns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    button {
+      cursor: pointer;
+      background: transparent;
+      border: 4px solid black;
+      border-radius: 6px;
+      padding: 10px 5px;
+      background-size: 106%;
+      font-size: 16px;
+      font-weight: 600;
+      @media (width <=768px) {
+        margin-bottom: 10px;
+      }
+    }
+    @media (width <=768px) {
       font-size: 13px;
+      flex-direction: column;
     }
   }
 }
 
 .start-game input {
   margin-top: 20px;
-  background-color: transparent;
-  color: $theme-1;
-  border: 11px solid $theme-1;
-  text-align: center;
-  padding: 9px;
+  background-color: transparent !important;
+  border: 4px solid black;
+  padding: 9px 15px;
   border-radius: 6px;
   outline: none;
   position: relative;
@@ -194,6 +202,12 @@ div.app div:hover {
 
   @media (min-width: 801px) {
     left: 0;
+  }
+
+  &,
+  &::placeholder {
+    color: black;
+    font-weight: 600;
   }
 }
 
@@ -251,6 +265,10 @@ div.app div.theme-4 {
     }
   }
 
+  img {
+    animation: animTheme 1s ease-in !important;
+  }
+
   img,
   .active {
     width: 100%;
@@ -291,5 +309,14 @@ li:not(.winner) {
   }
   to {
     width: 90%;
+  }
+}
+
+@keyframes animTheme {
+  from {
+    object-position: -400px;
+  }
+  to {
+    object-position: 0;
   }
 }

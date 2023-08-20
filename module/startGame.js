@@ -57,8 +57,6 @@ export const HandleBTNStart = (playing) => {
     changeColorBoxes();
 
     playing.includes("friend") ? PlayWithFriend() : PlayWithPc();
-
-    // soundStartGame.play();
   }
   HandleError();
 };

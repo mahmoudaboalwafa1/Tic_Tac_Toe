@@ -44,7 +44,9 @@
 
     <div class="start-game">
       <input id="name" type="text" placeholder="your name" />
-      <p>choose <span id="x">X</span> or <span id="o">O</span></p>
+      <p class="choose">
+        choose <span id="x">X</span> or <span id="o">O</span>
+      </p>
       <p>select your theme</p>
       <ul class="themes-area">
         <li>
@@ -55,9 +57,12 @@
         <li><img data-theme="theme-4" /></li>
       </ul>
       <p id="error"></p>
-      <button id="friend">Play With Friend</button>
-      <button id="computer">Play With Computer</button>
+      <div class="container-btns">
+        <button id="friend">Play With Friend</button>
+        <button id="computer">Play With Computer</button>
+      </div>
     </div>
+
     <script src="./dist/main.bundle.js" type="module"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
   </body>
