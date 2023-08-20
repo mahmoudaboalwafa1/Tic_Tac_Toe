@@ -156,11 +156,15 @@ div.app div:hover {
   background-size: 106%;
   font-size: 16px;
   font-weight: 600;
+  transition: all 0.5s linear;
 }
 @media (width <= 768px) {
   .start-game div.container-btns button {
     margin-bottom: 10px;
   }
+}
+.start-game div.container-btns button:hover {
+  background-color: white;
 }
 @media (width <= 768px) {
   .start-game div.container-btns {
@@ -251,6 +255,7 @@ div.app div.theme-4 {
 }
 .themes-area img {
   animation: animTheme 1s ease-in !important;
+  cursor: pointer;
 }
 .themes-area img,
 .themes-area .active {

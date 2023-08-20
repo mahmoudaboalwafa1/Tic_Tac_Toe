@@ -181,6 +181,12 @@ div.app div:hover {
       @media (width <=768px) {
         margin-bottom: 10px;
       }
+
+      transition: all 0.5s linear;
+
+      &:hover {
+        background-color: white;
+      }
     }
     @media (width <=768px) {
       font-size: 13px;
@@ -267,6 +273,7 @@ div.app div.theme-4 {
 
   img {
     animation: animTheme 1s ease-in !important;
+    cursor: pointer;
   }
 
   img,

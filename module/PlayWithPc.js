@@ -1,4 +1,4 @@
-import { Logic } from "./logic";
+import { Logic } from "./Logic/logic.js";
 
 const PlayWithPc = () => {
   Logic("computer");

@@ -1,9 +1,9 @@
-import { getAlertMessage, getPlay, setAlertMessage } from "./state.js";
-import * as variables from "./variables.js";
-import StartTimer from "./StartTimer.js";
-import { getThemeSelected } from "./state.js";
-import PlayWithFriend from "./PlayWithFriend.js";
-import PlayWithPc from "./PlayWithPc.js";
+import { getAlertMessage, getPlay, setAlertMessage } from "../Global/state.js";
+import * as variables from "../Global/variables.js";
+import StartTimer from "../StartTimer.js";
+import { getThemeSelected } from "../Global/state.js";
+import PlayWithFriend from "../PlayWithFriend.js";
+import PlayWithPc from "../PlayWithPc.js";
 
 // Hide Start Game
 export const startGame = () => {

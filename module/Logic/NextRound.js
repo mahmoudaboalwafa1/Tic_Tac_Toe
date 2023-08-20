@@ -1,7 +1,7 @@
-import { reset } from "./EndGame.js";
+import { reset } from "./EndGame";
 import { HideGame, changeColorBoxes } from "./startGame.js";
-import { getWhoWin, setTimer, setWhoWin } from "./state.js";
-import { app, boxes, result, result_container } from "./variables.js";
+import { getWhoWin, setTimer } from "../Global/state.js";
+import { app, boxes, result, result_container } from "../Global/variables.js";
 
 let Themes = ["theme-1", "theme-2", "theme-3", "theme-4"];
 let nextTheme = "";

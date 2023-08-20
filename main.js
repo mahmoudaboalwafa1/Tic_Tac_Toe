@@ -1,8 +1,8 @@
-import * as theme from "./module/themes.js";
-import { startGame } from "./module/startGame.js";
-import { ChooseTicOrToc } from "./module/ChooseX_O.js";
+import * as theme from "./module/Global/themes.js";
+import { startGame } from "./module/Logic/startGame.js";
+import { ChooseTicOrToc } from "./module/Global/ChooseX_O.js";
 import style from "./style.css";
-import ApplyThemes from "./module/ApplyTheme.js";
+import ApplyThemes from "./module/Global/ApplyTheme.js";
 
 theme.SetTheme(theme.themeNowX, theme.themeNowO);
 startGame();

@@ -1,8 +1,8 @@
 // End Game Logic
 
-import { result, app } from "./variables.js";
-import { getWin, setWhoWin, setWin } from "./state.js";
-import { getThemeSelected } from "./state.js";
+import { result, app } from "../Global/variables.js";
+import { getWin, setWhoWin, setWin } from "../Global/state.js";
+import { getThemeSelected } from "../Global/state.js";
 import { EndGame } from "./EndGame.js";
 
 export const WinGame = (...arg) => {

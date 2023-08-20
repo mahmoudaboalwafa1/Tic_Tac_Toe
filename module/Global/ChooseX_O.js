@@ -2,7 +2,7 @@
 
 import * as variables from "./variables.js";
 import { getPlay, setPlay, setPlayComputer } from "./state.js";
-import { startGame } from "./startGame.js";
+import { startGame } from "../Logic/startGame.js";
 
 // Enter To Game Functionality
 const EnterToGame = () => {

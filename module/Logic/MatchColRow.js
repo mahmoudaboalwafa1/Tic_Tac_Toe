@@ -1,5 +1,5 @@
 import { WinGame } from "./WinGame";
-import { boxes } from "./variables";
+import { boxes } from "../Global/variables";
 
 const MatchColsAndRows = () => {
   // Rows

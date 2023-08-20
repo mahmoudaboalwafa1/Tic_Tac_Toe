@@ -1,15 +1,13 @@
 import { HideGame } from "./startGame.js";
 import {
-  getThemeSelected,
-  getWhoWin,
   setAlertMessage,
   setPlay,
   setThemeNext,
   setThemeSelected,
   setTimer,
   setWin,
-} from "./state.js";
-import { themeNowO, themeNowX } from "./themes.js";
+} from "../Global/state.js";
+import { themeNowO, themeNowX } from "../Global/themes.js";
 import {
   boxes,
   name,
@@ -19,7 +17,7 @@ import {
   x,
   o,
   timer,
-} from "./variables.js";
+} from "../Global/variables.js";
 
 export const reset = (text) => {
   setThemeSelected("");

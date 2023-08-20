@@ -1,6 +1,7 @@
-import * as variables from "./variables.js";
-import { boxes } from "./variables.js";
-import { getWin, getWhoWin, getTimer, setTimer } from "./state.js";
+import * as variables from "./Global/variables.js";
+import { boxes } from "./Global/variables.js";
+import { getWin, getWhoWin, getTimer, setTimer } from "./Global/state.js";
+import { EndGame } from "./Logic/EndGame.js";
 const StartTimer = () => {
   let interval = setInterval(() => {
     variables.timer.style.width = `${getTimer()}%`;
@@ -13,6 +14,7 @@ const StartTimer = () => {
 
     if (getTimer() === 0 || getWin()) {
       clearInterval(interval);
+      EndGame();
     }
 
     if (getTimer() <= 60 && getTimer() >= 36 && !getWin() && !getWhoWin()) {

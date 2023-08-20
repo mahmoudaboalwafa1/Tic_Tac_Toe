@@ -6,10 +6,10 @@ import {
   getWin,
   setAlertMessage,
   setPlay,
-} from "./state.js";
-import { themeNowO, themeNowX } from "./themes.js";
-import { boxes, result } from "./variables.js";
-import { setWhoWin } from "./state.js";
+} from "../Global/state.js";
+import { themeNowO, themeNowX } from "../Global/themes.js";
+import { boxes, result } from "../Global/variables.js";
+import { setWhoWin } from "../Global/state.js";
 import NextRound from "./NextRound.js";
 import MatchColsAndRows from "./MatchColRow.js";
 

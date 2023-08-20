@@ -1,16 +1,16 @@
 import { boxes, game_container, result, themes } from "./variables.js";
 
-import ThemeXOne from "../images/player_x/close.png";
-import ThemeXTwo from "../images/player_x/x.png";
-import ThemeXThree from "../images/player_x/pharmacy.png";
-import ThemeXFour from "../images/player_x/no.png";
-import ThemeOOne from "../images/player_o/o (1).png";
-import ThemeOTwo from "../images/player_o/letter-o.png";
-import ThemeOThree from "../images/player_o/o (2).png";
-import ThemeOFour from "../images/player_o/o (3).png";
-import leafImg from "../images/border-leaf.png";
+import ThemeXOne from "../../images/player_x/close.png";
+import ThemeXTwo from "../../images/player_x/x.png";
+import ThemeXThree from "../../images/player_x/pharmacy.png";
+import ThemeXFour from "../../images/player_x/no.png";
+import ThemeOOne from "../../images/player_o/o (1).png";
+import ThemeOTwo from "../../images/player_o/letter-o.png";
+import ThemeOThree from "../../images/player_o/o (2).png";
+import ThemeOFour from "../../images/player_o/o (3).png";
+import leafImg from "../../images/border-leaf.png";
 import { setThemeSelected, getThemeNext, getThemeSelected } from "./state.js";
-import NextRound from "./NextRound.js";
+import NextRound from "../Logic/NextRound.js";
 
 export let themeNowX = "";
 export let themeNowO = "";
