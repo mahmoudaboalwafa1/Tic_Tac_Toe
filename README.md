@@ -1,6 +1,6 @@
 # XO_Game
 
-#### Live Preview:  https://game-x-o-tic-tac-toe.netlify.app/01~
+#### Live Preview: https://game-x-o-tic-tac-toe.netlify.app/
 
 Tools: `HTML` `CSS` `Javascript`
 ***
