@@ -7,6 +7,8 @@ let Themes = ["theme-1", "theme-2", "theme-3", "theme-4"];
 let nextTheme = "";
 let round = 1;
 const NextRound = () => {
+  result.innerHTML = "";
+
   if (getWhoWin()) {
     setTimer(95);
     app.classList.add("disable");
